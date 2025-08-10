@@ -4,6 +4,8 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { categories } from "@/data/inzovu";
 import { useEffect, useMemo, useState } from "react";
+import MobileMenu from "./MobileMenu";
+
 
 export default function Header() {
   const navigate = useNavigate();
@@ -33,8 +35,9 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b">
-      <div className="container mx-auto flex items-center justify-between py-3">
-        <div className="flex items-center gap-6">
+      <div className="container mx-auto px-4 md:px-0 flex items-center justify-between py-3">
+        <div className="flex items-center gap-3">
+          <MobileMenu />
           <Link to="/" className="font-display text-xl md:text-2xl font-semibold tracking-tight">
             Inzovu Market
           </Link>

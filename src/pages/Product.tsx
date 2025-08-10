@@ -26,7 +26,7 @@ export default function Product() {
 
   return (
     <div className="container mx-auto py-8 grid md:grid-cols-2 gap-8">
-      <img src={product.image} alt={`${product.name} - Inzovu Market product image`} className="w-full h-80 object-cover rounded-lg" />
+      <img src={product.image} alt={`${product.name} - Inzovu Market product image`} className="w-full h-80 object-cover rounded-lg" loading="lazy" />
 
       <div>
         <h1 className="font-display text-3xl font-semibold">{product.name}</h1>

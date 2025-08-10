@@ -1,11 +1,15 @@
 import { Button } from "@/components/ui/button";
+import heroBg from "@/assets/hero-bg.jpg";
+import heroSide from "@/assets/hero-side.jpg";
 
 export default function Hero() {
   return (
     <section
       className="relative overflow-hidden"
       style={{
-        background: "radial-gradient(600px circle at var(--x,50%) var(--y,30%), hsl(var(--accent) / 0.25), transparent 40%), var(--gradient-subtle)",
+        backgroundImage: `linear-gradient(0deg, hsl(var(--background) / 0.92), hsl(var(--background) / 0.92)), url(${heroBg})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
       }}
       onMouseMove={(e) => {
         const rect = (e.currentTarget as HTMLElement).getBoundingClientRect();
@@ -33,7 +37,7 @@ export default function Hero() {
         </div>
         <div className="relative">
           <div className="rounded-xl overflow-hidden shadow-xl">
-            <img src="/placeholder.svg" alt="Inzovu Market fresh produce assortment" className="w-full h-64 md:h-80 object-cover" />
+            <img src={heroSide} alt="Inzovu Market fresh produce assortment" className="w-full h-64 md:h-80 object-cover" />
           </div>
         </div>
       </div>
