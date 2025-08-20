@@ -40,30 +40,38 @@ export default function Header() {
   return (
     <>
       {/* Announcement Bar */}
-      <div className="bg-primary text-primary-foreground text-center py-2 text-sm">
-        🎉 New to Inzovu Market? Use code NEWCUSTOMER2025 and get 250 RWF discount on orders above 1000 RWF! 🚚💨
+      <div className="bg-primary text-primary-foreground text-center py-3 text-sm font-medium">
+        <div className="container mx-auto px-4">
+          <span className="hidden sm:inline">🎉 New to Inzovu Market? Use code NEWCUSTOMER2025 and get 250 RWF discount on orders above 1000 RWF! 🚚💨</span>
+          <span className="sm:hidden">🎉 Use code NEWCUSTOMER2025 - 250 RWF off orders 1000+ RWF!</span>
+        </div>
       </div>
 
-      <header className="sticky top-0 z-50 bg-background border-b">
+      <header className="sticky top-0 z-50 bg-background/95 backdrop-blur-md border-b shadow-sm">
         <div className="container mx-auto px-4">
-          {/* Top Header */}
-          <div className="flex items-center justify-between h-20">
-            <div className="flex items-center gap-4">
-              <span className="text-xs text-muted-foreground font-medium tracking-wider">EST. 2024</span>
+          {/* Mobile-First Top Header */}
+          <div className="flex items-center justify-between h-16 md:h-20">
+            {/* Left side - Logo centered on mobile */}
+            <div className="flex items-center gap-2 md:gap-4">
+              <MobileMenu />
+              <span className="hidden md:inline text-xs text-muted-foreground font-medium tracking-wider">EST. 2024</span>
             </div>
             
-            <Link to="/" className="flex flex-col items-center group">
-              <span className="font-display text-3xl font-bold text-primary group-hover:text-primary/80 transition-colors">INZOVU</span>
-              <span className="text-sm text-accent font-semibold -mt-2 tracking-wider">Food Market</span>
+            {/* Center Logo */}
+            <Link to="/" className="flex flex-col items-center group absolute left-1/2 transform -translate-x-1/2 md:relative md:left-auto md:transform-none">
+              <span className="font-display text-xl md:text-3xl font-bold text-primary group-hover:text-primary/80 transition-colors">INZOVU</span>
+              <span className="text-xs md:text-sm text-accent font-semibold -mt-1 md:-mt-2 tracking-wider">Food Market</span>
             </Link>
 
-            <div className="flex items-center gap-6">
+            {/* Right side - Actions */}
+            <div className="flex items-center gap-2 md:gap-6">
+              {/* Desktop Search */}
               <div className="hidden lg:flex relative">
                 <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                 <Input
                   type="search"
                   placeholder="Search for products..."
-                  className="pl-11 w-80 h-11 bg-muted/30 border-muted-foreground/20 focus:bg-background"
+                  className="pl-11 w-80 h-11 bg-muted/30 border-muted-foreground/20 focus:bg-background transition-all focus:ring-2 focus:ring-primary/20"
                   onKeyDown={(e) => {
                     if (e.key === "Enter") {
                       const query = (e.target as HTMLInputElement).value;
@@ -74,44 +82,42 @@ export default function Header() {
                 <Button size="sm" className="ml-3 btn-hero h-11 px-6">Search</Button>
               </div>
 
-              <div className="flex items-center gap-3">
-                <Button variant="ghost" size="icon" className="hidden lg:flex hover:bg-muted/50">
+              {/* Mobile Search Icon */}
+              <Button variant="ghost" size="icon" className="lg:hidden h-10 w-10 hover:bg-muted/50 rounded-full">
+                <Search className="h-5 w-5" />
+              </Button>
+
+              {/* Desktop Actions */}
+              <div className="hidden lg:flex items-center gap-3">
+                <Button variant="ghost" size="icon" className="hover:bg-muted/50 rounded-full h-10 w-10">
                   <Heart className="h-5 w-5" />
                 </Button>
                 
-                <div className="hidden lg:flex items-center gap-2 p-2 hover:bg-muted/50 rounded-lg transition-colors cursor-pointer">
+                <div className="flex items-center gap-2 p-2 hover:bg-muted/50 rounded-lg transition-colors cursor-pointer">
                   <User className="h-5 w-5" />
                   <div className="flex flex-col text-xs">
                     <span className="font-medium">My Account</span>
                     <span className="text-muted-foreground">Log In</span>
                   </div>
                 </div>
-
-                <Link
-                  to="/cart"
-                  className="relative p-3 hover:bg-muted/50 rounded-lg transition-colors flex items-center gap-2"
-                >
-                  <ShoppingCart className="h-5 w-5" />
-                  <div className="hidden lg:flex flex-col text-xs">
-                    <span className="font-medium">My Cart</span>
-                    <span className="text-primary font-semibold">RWF 0</span>
-                  </div>
-                  {cartCount > 0 && (
-                    <span className="absolute -top-1 -right-1 bg-primary text-primary-foreground text-xs rounded-full h-6 w-6 flex items-center justify-center font-bold">
-                      {cartCount}
-                    </span>
-                  )}
-                </Link>
-
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  className="lg:hidden"
-                  onClick={() => setShowMobileMenu(true)}
-                >
-                  <Menu className="h-6 w-6" />
-                </Button>
               </div>
+
+              {/* Cart - Always visible */}
+              <Link
+                to="/cart"
+                className="relative p-2 md:p-3 hover:bg-muted/50 rounded-full md:rounded-lg transition-colors flex items-center gap-2 touch-manipulation"
+              >
+                <ShoppingCart className="h-5 w-5" />
+                <div className="hidden lg:flex flex-col text-xs">
+                  <span className="font-medium">My Cart</span>
+                  <span className="text-primary font-semibold">RWF 0</span>
+                </div>
+                {cartCount > 0 && (
+                  <span className="absolute -top-1 -right-1 bg-primary text-primary-foreground text-xs rounded-full h-5 w-5 md:h-6 md:w-6 flex items-center justify-center font-bold animate-pulse">
+                    {cartCount > 99 ? '99+' : cartCount}
+                  </span>
+                )}
+              </Link>
             </div>
           </div>
 
