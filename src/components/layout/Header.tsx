@@ -39,17 +39,31 @@ export default function Header() {
 
   return (
     <>
-      {/* Announcement Bar */}
-      <div className="bg-primary text-primary-foreground text-center py-3 text-sm font-medium">
-        <div className="container mx-auto px-4">
-          <span className="hidden sm:inline">🎉 New to Inzovu Market? Use code NEWCUSTOMER2025 and get 250 RWF discount on orders above 1000 RWF! 🚚💨</span>
-          <span className="sm:hidden">🎉 Use code NEWCUSTOMER2025 - 250 RWF off orders 1000+ RWF!</span>
+      {/* Marquee Announcement Bar */}
+      <div className="bg-primary text-primary-foreground py-3 text-sm font-medium overflow-hidden relative">
+        <div className="animate-marquee whitespace-nowrap">
+          <span className="mx-8">🎉 New to Inzovu Market? Use code NEWCUSTOMER2025 and get 250 RWF discount on orders above 1000 RWF! 🚚💨</span>
+          <span className="mx-8">🎉 New to Inzovu Market? Use code NEWCUSTOMER2025 and get 250 RWF discount on orders above 1000 RWF! 🚚💨</span>
+          <span className="mx-8">🎉 New to Inzovu Market? Use code NEWCUSTOMER2025 and get 250 RWF discount on orders above 1000 RWF! 🚚💨</span>
+          <span className="mx-8">🎉 New to Inzovu Market? Use code NEWCUSTOMER2025 and get 250 RWF discount on orders above 1000 RWF! 🚚💨</span>
         </div>
       </div>
 
       <header className="sticky top-0 z-50 bg-background/95 backdrop-blur-md border-b shadow-sm">
         <div className="container mx-auto px-4">
-          {/* Mobile-First Top Header */}
+          {/* Top Navigation Bar */}
+          <div className="flex items-center justify-between h-12 text-xs text-muted-foreground border-b border-border/50">
+            <div className="flex items-center gap-6">
+              <span>FRUITS | VEG | DAIRY & EGGS | BAKERY | PANTRY | DELI | NEW IN |</span>
+            </div>
+            <div className="flex items-center gap-4">
+              <span>My Account</span>
+              <span>My Cart</span>
+              <span>RWF 0</span>
+            </div>
+          </div>
+
+          {/* Main Header */}
           <div className="flex items-center justify-between h-16 md:h-20">
             {/* Left side - Logo centered on mobile */}
             <div className="flex items-center gap-2 md:gap-4">
@@ -57,29 +71,32 @@ export default function Header() {
               <span className="hidden md:inline text-xs text-muted-foreground font-medium tracking-wider">EST. 2024</span>
             </div>
             
-            {/* Center Logo */}
-            <Link to="/" className="flex flex-col items-center group absolute left-1/2 transform -translate-x-1/2 md:relative md:left-auto md:transform-none">
-              <span className="font-display text-xl md:text-3xl font-bold text-primary group-hover:text-primary/80 transition-colors">INZOVU</span>
-              <span className="text-xs md:text-sm text-accent font-semibold -mt-1 md:-mt-2 tracking-wider">Food Market</span>
+            {/* Logo */}
+            <Link to="/" className="flex flex-col items-start group">
+              <span className="font-display text-2xl md:text-3xl font-bold text-primary group-hover:text-primary/80 transition-colors">INZOVU</span>
+              <span className="text-xs text-accent font-semibold -mt-1 tracking-wider">Food Market</span>
             </Link>
 
             {/* Right side - Actions */}
             <div className="flex items-center gap-2 md:gap-6">
-              {/* Desktop Search */}
-              <div className="hidden lg:flex relative">
-                <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                <Input
-                  type="search"
-                  placeholder="Search for products..."
-                  className="pl-11 w-80 h-11 bg-muted/30 border-muted-foreground/20 focus:bg-background transition-all focus:ring-2 focus:ring-primary/20"
-                  onKeyDown={(e) => {
-                    if (e.key === "Enter") {
-                      const query = (e.target as HTMLInputElement).value;
-                      window.location.href = `/shop?q=${encodeURIComponent(query)}`;
-                    }
-                  }}
-                />
-                <Button size="sm" className="ml-3 btn-hero h-11 px-6">Search</Button>
+              {/* Center Search */}
+              <div className="flex-1 max-w-lg mx-8">
+                <div className="relative">
+                  <Input
+                    type="search"
+                    placeholder="Search for products..."
+                    className="w-full h-11 pr-20 bg-muted/30 border-muted-foreground/20 focus:bg-background transition-all focus:ring-2 focus:ring-primary/20"
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter") {
+                        const query = (e.target as HTMLInputElement).value;
+                        window.location.href = `/shop?q=${encodeURIComponent(query)}`;
+                      }
+                    }}
+                  />
+                  <Button size="sm" className="absolute right-1 top-1 btn-hero h-9 px-4">
+                    Search
+                  </Button>
+                </div>
               </div>
 
               {/* Mobile Search Icon */}

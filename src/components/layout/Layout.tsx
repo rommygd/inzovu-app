@@ -1,12 +1,21 @@
+import { Outlet, useLocation } from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
-import { ReactNode } from "react";
+import Sidebar from "./Sidebar";
 
-export default function Layout({ children }: { children: ReactNode }) {
+export default function Layout() {
+  const location = useLocation();
+  const showSidebar = location.pathname === "/";
+
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-gradient-to-br from-background to-muted/20">
       <Header />
-      <main className="flex-1">{children}</main>
+      <div className="flex flex-1">
+        {showSidebar && <Sidebar />}
+        <main className="flex-1">
+          <Outlet />
+        </main>
+      </div>
       <Footer />
     </div>
   );

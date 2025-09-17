@@ -1,7 +1,11 @@
 import Hero from "@/components/home/Hero";
 import ProductCard from "@/components/product/ProductCard";
+import CustomerTestimonials from "@/components/home/CustomerTestimonials";
+import PromotionalCards from "@/components/home/PromotionalCards";
 import { categories, products } from "@/data/inzovu";
 import { Link } from "react-router-dom";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const Index = () => {
   const categoryFeatures = [
@@ -41,89 +45,91 @@ const Index = () => {
     <>
       <Hero />
 
-      <main className="container mx-auto px-4">
-        {/* Main Category Grid - Zucchini Style */}
-        <section className="py-16">
-          <div className="grid md:grid-cols-5 gap-6">
-            {categoryFeatures.map((category) => (
-              <Link
-                key={category.slug}
-                to={`/category/${category.slug}`}
-                className="group relative aspect-square rounded-2xl overflow-hidden bg-card border hover-scale card-elevated"
-              >
-                <img 
-                  src={category.image} 
-                  alt={category.title} 
-                  className="w-full h-full object-cover transition-transform group-hover:scale-105" 
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-                <div className="absolute bottom-4 left-4 text-white">
-                  <h3 className="font-display text-lg font-bold">{category.title}</h3>
-                </div>
-              </Link>
-            ))}
+      <main className="flex-1">
+        {/* Main Category Grid */}
+        <section className="py-12">
+          <div className="container mx-auto px-4">
+            <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
+              {categoryFeatures.map((category) => (
+                <Link
+                  key={category.slug}
+                  to={`/category/${category.slug}`}
+                  className="group flex flex-col items-center p-6 bg-background rounded-xl border border-border hover:shadow-lg transition-all duration-200 hover:-translate-y-1"
+                >
+                  <div className="w-20 h-20 mb-4 rounded-full overflow-hidden bg-muted">
+                    <img 
+                      src={category.image} 
+                      alt={category.title} 
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform" 
+                    />
+                  </div>
+                  <h3 className="font-medium text-center text-sm">{category.title}</h3>
+                </Link>
+              ))}
+            </div>
           </div>
         </section>
 
         {/* Fruits Section */}
-        <section className="py-16">
-          <div className="text-center mb-12">
-            <h2 className="font-display text-4xl font-bold mb-4">Fruits</h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              The freshest fruits straight from the farms
-            </p>
-          </div>
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {products.filter(p => p.categorySlug === "fruits").slice(0, 4).map((p) => (
-              <ProductCard key={p.id} product={p} />
-            ))}
-          </div>
-          <div className="text-center mt-8">
-            <Link to="/category/fruits" className="btn-hero inline-flex items-center px-8 py-3 rounded-lg">
-              Shop All Fruits
-            </Link>
+        <section className="py-12 border-t border-border/50">
+          <div className="container mx-auto px-4">
+            <div className="flex items-center justify-between mb-8">
+              <div>
+                <h2 className="font-display text-2xl font-bold mb-2">Fruits</h2>
+                <p className="text-sm text-muted-foreground">
+                  The Freshest Fruits Straight From The Farms
+                </p>
+              </div>
+              <div className="flex gap-2">
+                <Button variant="outline" size="icon" className="h-8 w-8">
+                  <ChevronLeft className="h-4 w-4" />
+                </Button>
+                <Button variant="outline" size="icon" className="h-8 w-8">
+                  <ChevronRight className="h-4 w-4" />
+                </Button>
+              </div>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+              {products.filter(p => p.categorySlug === "fruits").slice(0, 4).map((p) => (
+                <ProductCard key={p.id} product={p} />
+              ))}
+            </div>
           </div>
         </section>
 
         {/* Vegetables Section */}
-        <section className="py-16 bg-muted/30 -mx-4 px-4 rounded-3xl">
-          <div className="text-center mb-12">
-            <h2 className="font-display text-4xl font-bold mb-4">Vegetables</h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Crisp, fresh vegetables picked at peak ripeness
-            </p>
-          </div>
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {products.filter(p => p.categorySlug === "vegetables").slice(0, 4).map((p) => (
-              <ProductCard key={p.id} product={p} />
-            ))}
-          </div>
-          <div className="text-center mt-8">
-            <Link to="/category/vegetables" className="btn-hero inline-flex items-center px-8 py-3 rounded-lg">
-              Shop All Vegetables
-            </Link>
+        <section className="py-12 border-t border-border/50">
+          <div className="container mx-auto px-4">
+            <div className="flex items-center justify-between mb-8">
+              <div>
+                <h2 className="font-display text-2xl font-bold mb-2">Vegetables</h2>
+                <p className="text-sm text-muted-foreground">
+                  Freshly Picked - Recently Picked
+                </p>
+              </div>
+              <div className="flex gap-2">
+                <Button variant="outline" size="icon" className="h-8 w-8">
+                  <ChevronLeft className="h-4 w-4" />
+                </Button>
+                <Button variant="outline" size="icon" className="h-8 w-8">
+                  <ChevronRight className="h-4 w-4" />
+                </Button>
+              </div>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+              {products.filter(p => p.categorySlug === "vegetables").slice(0, 4).map((p) => (
+                <ProductCard key={p.id} product={p} />
+              ))}
+            </div>
           </div>
         </section>
 
-        {/* Dairy Section */}
-        <section className="py-16">
-          <div className="text-center mb-12">
-            <h2 className="font-display text-4xl font-bold mb-4">Dairy & Eggs</h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Farm-fresh dairy products and free-range eggs
-            </p>
-          </div>
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {products.filter(p => p.categorySlug === "dairy").slice(0, 4).map((p) => (
-              <ProductCard key={p.id} product={p} />
-            ))}
-          </div>
-          <div className="text-center mt-8">
-            <Link to="/category/dairy" className="btn-hero inline-flex items-center px-8 py-3 rounded-lg">
-              Shop All Dairy
-            </Link>
-          </div>
-        </section>
+        {/* Promotional Cards */}
+        <PromotionalCards />
+
+        {/* Customer Testimonials */}
+        <CustomerTestimonials />
+
       </main>
 
       {/* JSON-LD schema */}

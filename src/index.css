@@ -143,4 +143,14 @@
   .touch-manipulation { touch-action: manipulation; }
   .active\:scale-95:active { transform: scale(0.95); }
   .active\:scale-98:active { transform: scale(0.98); }
+  
+  /* Marquee animation */
+  .animate-marquee {
+    animation: marquee 20s linear infinite;
+  }
+  
+  @keyframes marquee {
+    0% { transform: translate3d(100%, 0, 0); }
+    100% { transform: translate3d(-100%, 0, 0); }
+  }
 }
