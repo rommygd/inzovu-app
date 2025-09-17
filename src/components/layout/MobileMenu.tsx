@@ -50,27 +50,30 @@ export default function MobileMenu() {
       </SheetTrigger>
       <SheetContent side="left" className="w-full max-w-sm p-0 bg-background/98 backdrop-blur-md">
         <div className="flex flex-col h-full">
-          {/* Enhanced Header */}
-          <SheetHeader className="px-6 py-6 border-b bg-gradient-to-r from-primary/5 to-accent/5">
-            <SheetTitle className="text-left flex items-center gap-3">
-              <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
-                <span className="text-primary font-bold text-lg">I</span>
+          {/* Stunning Header */}
+          <SheetHeader className="px-6 py-8 border-b-0 bg-gradient-to-br from-primary via-primary/90 to-accent shadow-2xl relative overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-transparent to-accent/20 opacity-50"></div>
+            <SheetTitle className="text-left flex items-center gap-4 relative z-10">
+              <div className="w-14 h-14 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-lg border border-white/30">
+                <span className="text-white font-bold text-2xl drop-shadow-md">I</span>
               </div>
               <div>
-                <span className="font-display text-2xl font-bold text-primary block">INZOVU</span>
-                <span className="text-sm text-accent font-semibold">Food Market</span>
+                <span className="font-display text-3xl font-bold text-white block drop-shadow-md">INZOVU</span>
+                <span className="text-base text-white/90 font-semibold flex items-center gap-1">
+                  <span>🥬</span> Fresh Market
+                </span>
               </div>
             </SheetTitle>
           </SheetHeader>
 
-          {/* Enhanced Mobile Search */}
-          <div className="px-6 py-5 border-b bg-muted/20">
+          {/* Premium Mobile Search */}
+          <div className="px-6 py-6 bg-gradient-to-r from-primary/5 via-accent/5 to-primary/5 border-b border-primary/10">
             <div className="relative">
-              <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+              <Search className="absolute left-5 top-1/2 transform -translate-y-1/2 h-6 w-6 text-primary" />
               <Input
                 type="search"
-                placeholder="Search for fresh products..."
-                className="pl-12 h-12 text-base bg-background border-2 border-muted-foreground/20 focus:border-primary/50 rounded-xl transition-all"
+                placeholder="🔍 Search fresh fruits, vegetables..."
+                className="pl-14 h-14 text-base bg-white/80 backdrop-blur-sm border-2 border-primary/20 focus:border-primary focus:bg-white rounded-2xl transition-all shadow-lg hover:shadow-xl font-medium placeholder:text-muted-foreground/70"
                 onKeyDown={(e) => {
                   if (e.key === "Enter") {
                     const query = (e.target as HTMLInputElement).value;
@@ -83,32 +86,32 @@ export default function MobileMenu() {
 
           <div className="flex-1 overflow-y-auto">
             <nav className="px-6 py-4 space-y-2">
-              {/* Enhanced Quick Actions */}
+              {/* Stunning Quick Actions */}
               <div className="grid grid-cols-3 gap-4 mb-8">
-                <Link to="/cart" className="flex flex-col items-center gap-3 p-4 rounded-2xl bg-gradient-to-br from-primary/10 to-primary/5 hover:from-primary/20 hover:to-primary/10 transition-all duration-300 border border-primary/10 hover:border-primary/20 touch-manipulation active:scale-95">
-                  <div className="relative w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
-                    <ShoppingCart className="h-6 w-6 text-primary" />
+                <Link to="/cart" className="group flex flex-col items-center gap-3 p-5 rounded-3xl bg-gradient-to-br from-primary/20 via-primary/15 to-primary/10 hover:from-primary/30 hover:via-primary/25 hover:to-primary/15 transition-all duration-500 border-2 border-primary/20 hover:border-primary shadow-lg hover:shadow-2xl hover:shadow-primary/20 touch-manipulation active:scale-95 transform hover:-translate-y-1">
+                  <div className="relative w-14 h-14 bg-white/80 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-110">
+                    <ShoppingCart className="h-7 w-7 text-primary" />
                     {cartCount > 0 && (
-                      <span className="absolute -top-1 -right-1 bg-primary text-primary-foreground text-xs rounded-full h-5 w-5 flex items-center justify-center font-bold animate-bounce">
+                      <span className="absolute -top-2 -right-2 bg-accent text-white text-xs rounded-full h-6 w-6 flex items-center justify-center font-bold animate-bounce shadow-lg">
                         {cartCount > 9 ? '9+' : cartCount}
                       </span>
                     )}
                   </div>
-                  <span className="text-sm font-semibold text-primary">Cart</span>
+                  <span className="text-sm font-bold text-primary group-hover:text-primary/80">🛒 Cart</span>
                 </Link>
                 
-                <div className="flex flex-col items-center gap-3 p-4 rounded-2xl bg-gradient-to-br from-accent/10 to-accent/5 hover:from-accent/20 hover:to-accent/10 transition-all duration-300 border border-accent/10 hover:border-accent/20 touch-manipulation active:scale-95 cursor-pointer">
-                  <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center">
-                    <Heart className="h-6 w-6 text-accent" />
+                <div className="group flex flex-col items-center gap-3 p-5 rounded-3xl bg-gradient-to-br from-accent/20 via-accent/15 to-accent/10 hover:from-accent/30 hover:via-accent/25 hover:to-accent/15 transition-all duration-500 border-2 border-accent/20 hover:border-accent shadow-lg hover:shadow-2xl hover:shadow-accent/20 touch-manipulation active:scale-95 cursor-pointer transform hover:-translate-y-1">
+                  <div className="w-14 h-14 bg-white/80 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-110">
+                    <Heart className="h-7 w-7 text-accent" />
                   </div>
-                  <span className="text-sm font-semibold text-accent">Wishlist</span>
+                  <span className="text-sm font-bold text-accent group-hover:text-accent/80">💝 Wishlist</span>
                 </div>
                 
-                <div className="flex flex-col items-center gap-3 p-4 rounded-2xl bg-gradient-to-br from-muted/50 to-muted/20 hover:from-muted/70 hover:to-muted/40 transition-all duration-300 border border-muted-foreground/10 hover:border-muted-foreground/20 touch-manipulation active:scale-95 cursor-pointer">
-                  <div className="w-12 h-12 bg-muted/50 rounded-full flex items-center justify-center">
-                    <User className="h-6 w-6 text-foreground" />
+                <div className="group flex flex-col items-center gap-3 p-5 rounded-3xl bg-gradient-to-br from-muted/50 via-muted/40 to-muted/30 hover:from-muted/70 hover:via-muted/60 hover:to-muted/50 transition-all duration-500 border-2 border-muted-foreground/20 hover:border-muted-foreground/30 shadow-lg hover:shadow-2xl touch-manipulation active:scale-95 cursor-pointer transform hover:-translate-y-1">
+                  <div className="w-14 h-14 bg-white/80 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-110">
+                    <User className="h-7 w-7 text-foreground" />
                   </div>
-                  <span className="text-sm font-semibold">Account</span>
+                  <span className="text-sm font-bold text-foreground group-hover:text-foreground/80">👤 Account</span>
                 </div>
               </div>
 
