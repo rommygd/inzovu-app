@@ -50,42 +50,42 @@ export default function Header() {
       </div>
 
       <header className="sticky top-0 z-50 bg-background/95 backdrop-blur-md border-b shadow-sm">
-        <div className="container mx-auto px-4">
-          {/* Top Navigation Bar */}
-          <div className="flex items-center justify-between h-12 text-xs text-muted-foreground border-b border-border/50">
-            <div className="flex items-center gap-6">
-              <span>FRUITS | VEG | DAIRY & EGGS | BAKERY | PANTRY | DELI | NEW IN |</span>
+        <div className="container mx-auto px-2 sm:px-4">
+          {/* Top Navigation Bar - Hidden on Mobile */}
+          <div className="hidden md:flex items-center justify-between h-10 lg:h-12 text-xs text-muted-foreground border-b border-border/50">
+            <div className="flex items-center gap-4 lg:gap-6 overflow-hidden">
+              <span className="whitespace-nowrap text-xs lg:text-sm truncate">FRUITS | VEG | DAIRY & EGGS | BAKERY | PANTRY</span>
             </div>
-            <div className="flex items-center gap-4">
-              <span>My Account</span>
-              <span>My Cart</span>
+            <div className="flex items-center gap-3 lg:gap-4 text-xs lg:text-sm">
+              <span className="hidden lg:inline">My Account</span>
+              <span className="hidden lg:inline">My Cart</span>
               <span>RWF 0</span>
             </div>
           </div>
 
           {/* Main Header */}
-          <div className="flex items-center justify-between h-16 md:h-20">
-            {/* Left side - Logo centered on mobile */}
-            <div className="flex items-center gap-2 md:gap-4">
+          <div className="flex items-center justify-between h-14 sm:h-16 lg:h-20">
+            {/* Left side - Mobile Menu & EST */}
+            <div className="flex items-center gap-2 lg:gap-4 flex-shrink-0">
               <MobileMenu />
-              <span className="hidden md:inline text-xs text-muted-foreground font-medium tracking-wider">EST. 2024</span>
+              <span className="hidden lg:inline text-xs text-muted-foreground font-medium tracking-wider">EST. 2024</span>
             </div>
             
-            {/* Logo */}
-            <Link to="/" className="flex flex-col items-start group">
-              <span className="font-display text-2xl md:text-3xl font-bold text-primary group-hover:text-primary/80 transition-colors">INZOVU</span>
+            {/* Logo - Responsive */}
+            <Link to="/" className="flex flex-col items-center lg:items-start group flex-shrink-0">
+              <span className="font-display text-xl sm:text-2xl lg:text-3xl font-bold text-primary group-hover:text-primary/80 transition-colors">INZOVU</span>
               <span className="text-xs text-accent font-semibold -mt-1 tracking-wider">Food Market</span>
             </Link>
 
             {/* Right side - Actions */}
-            <div className="flex items-center gap-2 md:gap-6">
-              {/* Center Search */}
-              <div className="flex-1 max-w-lg mx-8">
+            <div className="flex items-center gap-1 sm:gap-2 lg:gap-6 flex-shrink-0">
+              {/* Desktop Search - Hidden on Mobile/Tablet */}
+              <div className="hidden xl:block flex-1 max-w-md">
                 <div className="relative">
                   <Input
                     type="search"
                     placeholder="Search for products..."
-                    className="w-full h-11 pr-20 bg-muted/30 border-muted-foreground/20 focus:bg-background transition-all focus:ring-2 focus:ring-primary/20"
+                    className="w-full h-10 pr-20 bg-muted/30 border-muted-foreground/20 focus:bg-background transition-all focus:ring-2 focus:ring-primary/20"
                     onKeyDown={(e) => {
                       if (e.key === "Enter") {
                         const query = (e.target as HTMLInputElement).value;
@@ -93,25 +93,25 @@ export default function Header() {
                       }
                     }}
                   />
-                  <Button size="sm" className="absolute right-1 top-1 btn-hero h-9 px-4">
+                  <Button size="sm" className="absolute right-1 top-1 btn-hero h-8 px-3 text-xs">
                     Search
                   </Button>
                 </div>
               </div>
 
               {/* Mobile Search Icon */}
-              <Button variant="ghost" size="icon" className="lg:hidden h-10 w-10 hover:bg-muted/50 rounded-full">
-                <Search className="h-5 w-5" />
+              <Button variant="ghost" size="icon" className="xl:hidden h-9 w-9 lg:h-10 lg:w-10 hover:bg-muted/50 rounded-full touch-manipulation">
+                <Search className="h-4 w-4 lg:h-5 lg:w-5" />
               </Button>
 
               {/* Desktop Actions */}
-              <div className="hidden lg:flex items-center gap-3">
-                <Button variant="ghost" size="icon" className="hover:bg-muted/50 rounded-full h-10 w-10">
-                  <Heart className="h-5 w-5" />
+              <div className="hidden lg:flex items-center gap-2 lg:gap-3">
+                <Button variant="ghost" size="icon" className="hover:bg-muted/50 rounded-full h-9 w-9 lg:h-10 lg:w-10">
+                  <Heart className="h-4 w-4 lg:h-5 lg:w-5" />
                 </Button>
                 
-                <div className="flex items-center gap-2 p-2 hover:bg-muted/50 rounded-lg transition-colors cursor-pointer">
-                  <User className="h-5 w-5" />
+                <div className="hidden xl:flex items-center gap-2 p-2 hover:bg-muted/50 rounded-lg transition-colors cursor-pointer">
+                  <User className="h-4 w-4 lg:h-5 lg:w-5" />
                   <div className="flex flex-col text-xs">
                     <span className="font-medium">My Account</span>
                     <span className="text-muted-foreground">Log In</span>
@@ -119,18 +119,18 @@ export default function Header() {
                 </div>
               </div>
 
-              {/* Cart - Always visible */}
+              {/* Cart - Always visible with responsive sizing */}
               <Link
                 to="/cart"
-                className="relative p-2 md:p-3 hover:bg-muted/50 rounded-full md:rounded-lg transition-colors flex items-center gap-2 touch-manipulation"
+                className="relative p-2 lg:p-3 hover:bg-muted/50 rounded-full lg:rounded-lg transition-colors flex items-center gap-1 lg:gap-2 touch-manipulation"
               >
-                <ShoppingCart className="h-5 w-5" />
-                <div className="hidden lg:flex flex-col text-xs">
+                <ShoppingCart className="h-4 w-4 sm:h-5 sm:w-5" />
+                <div className="hidden xl:flex flex-col text-xs">
                   <span className="font-medium">My Cart</span>
                   <span className="text-primary font-semibold">RWF 0</span>
                 </div>
                 {cartCount > 0 && (
-                  <span className="absolute -top-1 -right-1 bg-primary text-primary-foreground text-xs rounded-full h-5 w-5 md:h-6 md:w-6 flex items-center justify-center font-bold animate-pulse">
+                  <span className="absolute -top-1 -right-1 bg-primary text-primary-foreground text-xs rounded-full h-4 w-4 sm:h-5 sm:w-5 lg:h-6 lg:w-6 flex items-center justify-center font-bold animate-pulse">
                     {cartCount > 99 ? '99+' : cartCount}
                   </span>
                 )}

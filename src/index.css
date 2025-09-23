@@ -144,6 +144,21 @@
   .active\:scale-95:active { transform: scale(0.95); }
   .active\:scale-98:active { transform: scale(0.98); }
   
+  /* Responsive container utilities */
+  @media (max-width: 640px) {
+    .container {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .container {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+  }
+  
   /* Marquee animation */
   .animate-marquee {
     animation: marquee 20s linear infinite;

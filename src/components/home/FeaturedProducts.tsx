@@ -8,25 +8,25 @@ export default function FeaturedProducts() {
   const featuredProducts = products.slice(0, 8);
 
   return (
-    <section className="py-16 bg-gradient-to-b from-background to-muted/20">
-      <div className="container mx-auto px-4">
+    <section className="py-12 sm:py-16 bg-gradient-to-b from-background to-muted/20">
+      <div className="container mx-auto px-4 sm:px-6">
         {/* Header */}
-        <div className="text-center mb-12">
-          <div className="flex items-center justify-center gap-2 mb-4">
-            <Star className="h-6 w-6 text-accent fill-accent" />
-            <span className="text-accent font-semibold uppercase tracking-wider">Featured Products</span>
-            <Star className="h-6 w-6 text-accent fill-accent" />
+        <div className="text-center mb-8 sm:mb-12">
+          <div className="flex items-center justify-center gap-2 mb-3 sm:mb-4">
+            <Star className="h-5 w-5 sm:h-6 sm:w-6 text-accent fill-accent" />
+            <span className="text-accent font-semibold uppercase tracking-wider text-sm sm:text-base">Featured Products</span>
+            <Star className="h-5 w-5 sm:h-6 sm:w-6 text-accent fill-accent" />
           </div>
-          <h2 className="text-4xl font-bold text-foreground mb-4">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-3 sm:mb-4">
             Fresh Picks for You
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-sm sm:text-base lg:text-lg text-muted-foreground max-w-3xl mx-auto">
             Handpicked premium quality fruits and vegetables, sourced directly from local farms for maximum freshness and flavor.
           </p>
         </div>
 
         {/* Products Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 mb-8 sm:mb-12">
           {featuredProducts.map((product) => (
             <div key={product.id} className="group">
               <ProductCard product={product} />
@@ -37,9 +37,9 @@ export default function FeaturedProducts() {
         {/* CTA */}
         <div className="text-center">
           <Link to="/shop">
-            <Button size="lg" className="bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 text-lg px-8 py-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 group">
+            <Button size="lg" className="bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 text-sm sm:text-base lg:text-lg px-6 sm:px-8 py-4 sm:py-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 group w-full sm:w-auto touch-manipulation">
               View All Products
-              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5 group-hover:translate-x-1 transition-transform" />
             </Button>
           </Link>
         </div>

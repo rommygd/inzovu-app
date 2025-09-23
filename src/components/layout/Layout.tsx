@@ -11,8 +11,13 @@ export default function Layout() {
     <div className="min-h-screen flex flex-col bg-gradient-to-br from-background to-muted/20">
       <Header />
       <div className="flex flex-1">
-        {showSidebar && <Sidebar />}
-        <main className="flex-1">
+        {/* Sidebar - Hidden on mobile and tablet */}
+        {showSidebar && (
+          <div className="hidden xl:block">
+            <Sidebar />
+          </div>
+        )}
+        <main className="flex-1 w-full">
           <Outlet />
         </main>
       </div>

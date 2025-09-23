@@ -23,7 +23,7 @@ export default function ProductCard({ product }: { product: Product }) {
   };
 
   return (
-    <div className="group bg-white rounded-2xl shadow-sm border overflow-hidden hover:shadow-lg transition-all duration-300">
+    <div className="group bg-white rounded-xl lg:rounded-2xl shadow-sm border overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-300 touch-manipulation active:scale-95">
       <Link to={`/product/${product.id}`}>
         <div className="aspect-square overflow-hidden bg-muted/20">
           <img
@@ -35,23 +35,23 @@ export default function ProductCard({ product }: { product: Product }) {
         </div>
       </Link>
       
-      <div className="p-4">
+      <div className="p-3 sm:p-4">
         <Link to={`/product/${product.id}`}>
-          <h3 className="font-medium text-lg mb-3 group-hover:text-primary transition-colors line-clamp-2">{product.name}</h3>
+          <h3 className="font-medium text-sm sm:text-base lg:text-lg mb-2 sm:mb-3 group-hover:text-primary transition-colors line-clamp-2">{product.name}</h3>
         </Link>
         
-        <div className="flex items-center justify-between mb-3">
+        <div className="flex items-center justify-between mb-2 sm:mb-3">
           <div>
-            <span className="text-xl font-bold text-primary">RWF {(product.price * 1000).toFixed(0)}</span>
-            <div className="text-sm text-muted-foreground">per {product.unit || 'piece'}</div>
+            <span className="text-base sm:text-lg lg:text-xl font-bold text-primary">RWF {(product.price * 1000).toFixed(0)}</span>
+            <div className="text-xs sm:text-sm text-muted-foreground">per {product.unit || 'piece'}</div>
           </div>
         </div>
         
         <Button
           onClick={addToCart}
-          className="w-full btn-hero h-10 text-sm font-medium"
+          className="w-full btn-hero h-9 sm:h-10 text-xs sm:text-sm font-medium touch-manipulation active:scale-95"
         >
-          <Plus className="h-4 w-4 mr-1" />
+          <Plus className="h-3 w-3 sm:h-4 sm:w-4 mr-1" />
           Add to Cart
         </Button>
       </div>

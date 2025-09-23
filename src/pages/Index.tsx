@@ -63,24 +63,25 @@ const Index = () => {
                 Explore our wide range of fresh, premium quality products sourced directly from local farms
               </p>
             </div>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 sm:gap-6 lg:gap-8">
               {categories.map((category) => (
                 <Link
                   key={category.slug}
                   to={`/category/${category.slug}`}
-                  className="group text-center p-8 rounded-3xl bg-gradient-to-br from-white/80 to-white/40 backdrop-blur-sm border border-border/50 hover:bg-white/90 hover:border-primary/20 transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl hover:shadow-primary/10"
+                  className="group text-center p-4 sm:p-6 lg:p-8 rounded-2xl lg:rounded-3xl bg-gradient-to-br from-white/80 to-white/40 backdrop-blur-sm border border-border/50 hover:bg-white/90 hover:border-primary/20 transition-all duration-500 hover:-translate-y-2 lg:hover:-translate-y-3 hover:shadow-xl lg:hover:shadow-2xl hover:shadow-primary/10 touch-manipulation active:scale-95"
                 >
-                  <div className="w-24 h-24 mx-auto mb-6 rounded-3xl overflow-hidden ring-4 ring-white/50 group-hover:ring-primary/20 transition-all duration-300">
+                  <div className="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 mx-auto mb-3 sm:mb-4 lg:mb-6 rounded-2xl lg:rounded-3xl overflow-hidden ring-2 sm:ring-4 ring-white/50 group-hover:ring-primary/20 transition-all duration-300">
                     <img 
                       src={category.image} 
                       alt={category.title}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                      loading="lazy"
                     />
                   </div>
-                  <h3 className="font-bold text-base group-hover:text-primary transition-colors duration-300">
+                  <h3 className="font-bold text-sm sm:text-base group-hover:text-primary transition-colors duration-300">
                     {category.title}
                   </h3>
-                  <p className="text-sm text-muted-foreground mt-2 group-hover:text-primary/70 transition-colors">
+                  <p className="text-xs sm:text-sm text-muted-foreground mt-1 sm:mt-2 group-hover:text-primary/70 transition-colors">
                     Fresh & Premium
                   </p>
                 </Link>
@@ -90,34 +91,34 @@ const Index = () => {
         </section>
 
         {/* Fruits Section */}
-        <section className="py-16 border-t border-border/50 bg-gradient-to-r from-primary/5 via-background to-accent/5">
-          <div className="container mx-auto px-4">
-            <div className="flex items-center justify-between mb-12">
-              <div>
-                <h2 className="font-display text-4xl font-bold mb-4 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+        <section className="py-12 sm:py-16 border-t border-border/50 bg-gradient-to-r from-primary/5 via-background to-accent/5">
+          <div className="container mx-auto px-4 sm:px-6">
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-8 sm:mb-12">
+              <div className="mb-4 sm:mb-0">
+                <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold mb-2 sm:mb-4 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
                   🍎 Fresh Fruits
                 </h2>
-                <p className="text-lg text-muted-foreground">
+                <p className="text-sm sm:text-base lg:text-lg text-muted-foreground">
                   The Freshest Fruits Straight From The Farms - Handpicked Daily
                 </p>
               </div>
-              <div className="flex gap-3">
-                <Button variant="outline" size="icon" className="h-12 w-12 rounded-full hover:bg-primary/10">
-                  <ChevronLeft className="h-6 w-6" />
+              <div className="hidden sm:flex gap-2 lg:gap-3">
+                <Button variant="outline" size="icon" className="h-10 w-10 lg:h-12 lg:w-12 rounded-full hover:bg-primary/10 touch-manipulation">
+                  <ChevronLeft className="h-4 w-4 lg:h-6 lg:w-6" />
                 </Button>
-                <Button variant="outline" size="icon" className="h-12 w-12 rounded-full hover:bg-primary/10">
-                  <ChevronRight className="h-6 w-6" />
+                <Button variant="outline" size="icon" className="h-10 w-10 lg:h-12 lg:w-12 rounded-full hover:bg-primary/10 touch-manipulation">
+                  <ChevronRight className="h-4 w-4 lg:h-6 lg:w-6" />
                 </Button>
               </div>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
               {products.filter(p => p.categorySlug === "fruits").map((p) => (
                 <ProductCard key={p.id} product={p} />
               ))}
             </div>
-            <div className="text-center mt-12">
+            <div className="text-center mt-8 sm:mt-12">
               <Link to="/category/fruits">
-                <Button size="lg" className="bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 px-8 py-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300">
+                <Button size="lg" className="bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 px-6 sm:px-8 py-4 sm:py-6 text-sm sm:text-base rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 w-full sm:w-auto touch-manipulation">
                   View All Fruits
                 </Button>
               </Link>
@@ -132,34 +133,34 @@ const Index = () => {
         <WhyChooseUs />
 
         {/* Vegetables Section */}
-        <section className="py-16 border-t border-border/50 bg-gradient-to-r from-accent/5 via-background to-primary/5">
-          <div className="container mx-auto px-4">
-            <div className="flex items-center justify-between mb-12">
-              <div>
-                <h2 className="font-display text-4xl font-bold mb-4 bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">
+        <section className="py-12 sm:py-16 border-t border-border/50 bg-gradient-to-r from-accent/5 via-background to-primary/5">
+          <div className="container mx-auto px-4 sm:px-6">
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-8 sm:mb-12">
+              <div className="mb-4 sm:mb-0">
+                <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold mb-2 sm:mb-4 bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">
                   🥬 Fresh Vegetables
                 </h2>
-                <p className="text-lg text-muted-foreground">
+                <p className="text-sm sm:text-base lg:text-lg text-muted-foreground">
                   Freshly Picked - Recently Harvested from Local Gardens
                 </p>
               </div>
-              <div className="flex gap-3">
-                <Button variant="outline" size="icon" className="h-12 w-12 rounded-full hover:bg-accent/10">
-                  <ChevronLeft className="h-6 w-6" />
+              <div className="hidden sm:flex gap-2 lg:gap-3">
+                <Button variant="outline" size="icon" className="h-10 w-10 lg:h-12 lg:w-12 rounded-full hover:bg-accent/10 touch-manipulation">
+                  <ChevronLeft className="h-4 w-4 lg:h-6 lg:w-6" />
                 </Button>
-                <Button variant="outline" size="icon" className="h-12 w-12 rounded-full hover:bg-accent/10">
-                  <ChevronRight className="h-6 w-6" />
+                <Button variant="outline" size="icon" className="h-10 w-10 lg:h-12 lg:w-12 rounded-full hover:bg-accent/10 touch-manipulation">
+                  <ChevronRight className="h-4 w-4 lg:h-6 lg:w-6" />
                 </Button>
               </div>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
               {products.filter(p => p.categorySlug === "vegetables").map((p) => (
                 <ProductCard key={p.id} product={p} />
               ))}
             </div>
-            <div className="text-center mt-12">
+            <div className="text-center mt-8 sm:mt-12">
               <Link to="/category/vegetables">
-                <Button size="lg" className="bg-gradient-to-r from-accent to-accent/80 hover:from-accent/90 hover:to-accent/70 px-8 py-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300">
+                <Button size="lg" className="bg-gradient-to-r from-accent to-accent/80 hover:from-accent/90 hover:to-accent/70 px-6 sm:px-8 py-4 sm:py-6 text-sm sm:text-base rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 w-full sm:w-auto touch-manipulation">
                   View All Vegetables
                 </Button>
               </Link>
@@ -174,23 +175,23 @@ const Index = () => {
         <CustomerTestimonials />
 
         {/* Newsletter Section */}
-        <section className="py-20 bg-gradient-to-r from-primary via-primary/90 to-accent relative overflow-hidden">
+        <section className="py-16 sm:py-20 bg-gradient-to-r from-primary via-primary/90 to-accent relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-transparent to-accent/20 opacity-50"></div>
-          <div className="container mx-auto px-4 relative z-10">
+          <div className="container mx-auto px-4 sm:px-6 relative z-10">
             <div className="text-center text-white">
-              <h2 className="text-4xl font-bold mb-6">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 sm:mb-6">
                 Stay Fresh with Our Newsletter 📧
               </h2>
-              <p className="text-xl mb-8 text-white/90 max-w-2xl mx-auto">
+              <p className="text-sm sm:text-base lg:text-xl mb-6 sm:mb-8 text-white/90 max-w-3xl mx-auto">
                 Get exclusive deals, fresh product updates, and healthy recipe ideas delivered to your inbox
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center max-w-md sm:max-w-lg mx-auto">
                 <input
                   type="email"
                   placeholder="Enter your email"
-                  className="flex-1 px-6 py-4 rounded-2xl border-0 text-foreground placeholder:text-muted-foreground focus:ring-2 focus:ring-white/50 shadow-lg"
+                  className="flex-1 px-4 sm:px-6 py-3 sm:py-4 rounded-xl sm:rounded-2xl border-0 text-foreground placeholder:text-muted-foreground focus:ring-2 focus:ring-white/50 shadow-lg text-sm sm:text-base"
                 />
-                <button className="bg-white text-primary px-8 py-4 rounded-2xl font-bold hover:bg-white/90 transition-colors shadow-lg">
+                <button className="bg-white text-primary px-6 sm:px-8 py-3 sm:py-4 rounded-xl sm:rounded-2xl font-bold hover:bg-white/90 transition-colors shadow-lg text-sm sm:text-base touch-manipulation active:scale-95">
                   Subscribe 🚀
                 </button>
               </div>

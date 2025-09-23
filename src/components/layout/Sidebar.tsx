@@ -7,8 +7,8 @@ export default function Sidebar() {
   const [isOpen, setIsOpen] = useState(true);
 
   return (
-    <aside className="w-64 bg-card border-r border-border sticky top-[140px] h-[calc(100vh-140px)] overflow-y-auto">
-      <div className="p-4">
+    <aside className="w-56 lg:w-64 bg-card border-r border-border sticky top-[120px] lg:top-[140px] h-[calc(100vh-120px)] lg:h-[calc(100vh-140px)] overflow-y-auto">
+      <div className="p-3 lg:p-4">
         <button
           onClick={() => setIsOpen(!isOpen)}
           className="flex items-center justify-between w-full text-left font-medium text-foreground hover:text-primary transition-colors mb-4"
