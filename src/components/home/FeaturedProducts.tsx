@@ -3,6 +3,13 @@ import ProductCard from "@/components/product/ProductCard";
 import { products } from "@/data/inzovu";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Star } from "lucide-react";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 export default function FeaturedProducts() {
   const featuredProducts = products.slice(0, 8);
@@ -26,7 +33,37 @@ export default function FeaturedProducts() {
         </div>
 
         {/* Products Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 mb-8 sm:mb-12">
+        {/* Mobile Carousel */}
+        <div className="block sm:hidden mb-8">
+          <Carousel
+            opts={{
+              align: "start",
+              slidesToScroll: 1,
+            }}
+            className="w-full"
+          >
+            <CarouselContent className="-ml-2">
+              {Array.from({ length: Math.ceil(featuredProducts.length / 3) }).map((_, slideIndex) => (
+                <CarouselItem key={slideIndex} className="pl-2 basis-full">
+                  <div className="grid grid-cols-3 gap-3">
+                    {featuredProducts
+                      .slice(slideIndex * 3, slideIndex * 3 + 3)
+                      .map((product) => (
+                        <div key={product.id} className="group">
+                          <ProductCard product={product} />
+                        </div>
+                      ))}
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="left-2" />
+            <CarouselNext className="right-2" />
+          </Carousel>
+        </div>
+
+        {/* Desktop Grid */}
+        <div className="hidden sm:grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 mb-8 sm:mb-12">
           {featuredProducts.map((product) => (
             <div key={product.id} className="group">
               <ProductCard product={product} />
