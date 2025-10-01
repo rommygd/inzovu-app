@@ -4,7 +4,11 @@ import CustomerTestimonials from "@/components/home/CustomerTestimonials";
 import PromotionalCards from "@/components/home/PromotionalCards";
 import FeaturedProducts from "@/components/home/FeaturedProducts";
 import WhyChooseUs from "@/components/home/WhyChooseUs";
+<<<<<<< HEAD
 import { categories, products } from "@/data/inzovu";
+=======
+import { categories } from "@/data/inzovu";
+>>>>>>> 3a3d41a (Updated code with new changes)
 import { Link } from "react-router-dom";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -15,8 +19,15 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+<<<<<<< HEAD
 
 const Index = () => {
+=======
+import { useProducts } from "@/contexts/ProductContext";
+
+const Index = () => {
+  const { products } = useProducts();
+>>>>>>> 3a3d41a (Updated code with new changes)
   const categoryFeatures = [
     {
       slug: "bakery",
@@ -78,8 +89,13 @@ const Index = () => {
                   className="group text-center p-4 sm:p-6 lg:p-8 rounded-2xl lg:rounded-3xl bg-gradient-to-br from-white/80 to-white/40 backdrop-blur-sm border border-border/50 hover:bg-white/90 hover:border-primary/20 transition-all duration-500 hover:-translate-y-2 lg:hover:-translate-y-3 hover:shadow-xl lg:hover:shadow-2xl hover:shadow-primary/10 touch-manipulation active:scale-95"
                 >
                   <div className="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 mx-auto mb-3 sm:mb-4 lg:mb-6 rounded-2xl lg:rounded-3xl overflow-hidden ring-2 sm:ring-4 ring-white/50 group-hover:ring-primary/20 transition-all duration-300">
+<<<<<<< HEAD
                     <img 
                       src={category.image} 
+=======
+                    <img
+                      src={category.image}
+>>>>>>> 3a3d41a (Updated code with new changes)
                       alt={category.title}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                       loading="lazy"

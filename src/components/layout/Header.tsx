@@ -35,6 +35,12 @@ export default function Header() {
     { name: "DELI", href: "/shop" },
     { name: "NEW IN", href: "/shop" },
     { name: "GOOD STUFF", href: "/shop" },
+<<<<<<< HEAD
+=======
+    { name: "ABOUT", href: "/about" },
+    { name: "CONTACT", href: "/contact" },
+    { name: "FAQ", href: "/faq" },
+>>>>>>> 3a3d41a (Updated code with new changes)
   ];
 
   return (

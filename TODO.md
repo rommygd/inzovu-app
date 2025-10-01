@@ -1,0 +1,3 @@
+- [x] Update Shop.tsx to use horizontal scrollable row on mobile instead of grid
+- [x] Update Category.tsx to use horizontal scrollable row on mobile instead of grid
+- [ ] Test the mobile view by running the dev server and checking responsiveness

@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
 import ProductCard from "@/components/product/ProductCard";
+<<<<<<< HEAD
 import { products } from "@/data/inzovu";
+=======
+>>>>>>> 3a3d41a (Updated code with new changes)
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Star } from "lucide-react";
 import {
@@ -10,8 +13,15 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+<<<<<<< HEAD
 
 export default function FeaturedProducts() {
+=======
+import { useProducts } from "@/contexts/ProductContext";
+
+export default function FeaturedProducts() {
+  const { products } = useProducts();
+>>>>>>> 3a3d41a (Updated code with new changes)
   const featuredProducts = products.slice(0, 8);
 
   return (
@@ -84,4 +94,8 @@ export default function FeaturedProducts() {
       </div>
     </section>
   );
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 3a3d41a (Updated code with new changes)

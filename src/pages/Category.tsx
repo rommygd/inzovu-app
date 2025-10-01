@@ -1,8 +1,16 @@
 import { useParams, Link } from "react-router-dom";
 import ProductCard from "@/components/product/ProductCard";
+<<<<<<< HEAD
 import { categories, products } from "@/data/inzovu";
 
 export default function Category() {
+=======
+import { categories } from "@/data/inzovu";
+import { useProducts } from "@/contexts/ProductContext";
+
+export default function Category() {
+  const { products } = useProducts();
+>>>>>>> 3a3d41a (Updated code with new changes)
   const { slug } = useParams();
   const category = categories.find((c) => c.slug === slug);
   const items = products.filter((p) => p.categorySlug === slug);
@@ -17,12 +25,39 @@ export default function Category() {
   }
 
   return (
+<<<<<<< HEAD
     <div className="container mx-auto py-8">
       <header className="flex items-end justify-between">
         <h1 className="font-display text-3xl font-semibold">{category.title}</h1>
         <div className="text-sm text-muted-foreground">{items.length} items</div>
       </header>
       <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-6">
+=======
+    <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <header className="text-center mb-8">
+        <h1 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4 leading-tight">
+          Fresh {category.title}
+        </h1>
+        <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto mb-6 px-2 sm:px-0">
+          Discover our premium selection of {category.title.toLowerCase()}, sourced directly from local farms for maximum freshness and flavor.
+          Quality you can taste in every bite.
+        </p>
+        <div className="text-sm text-muted-foreground">{items.length} fresh items in this category</div>
+      </header>
+      {/* Mobile horizontal scroll */}
+      <div className="block sm:hidden overflow-x-auto pb-4 mt-6">
+        <div className="flex gap-4 min-w-max">
+          {items.map((p) => (
+            <div key={p.id} className="w-64 flex-shrink-0">
+              <ProductCard product={p} />
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Desktop grid */}
+      <div className="hidden sm:grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-6">
+>>>>>>> 3a3d41a (Updated code with new changes)
         {items.map((p) => (
           <ProductCard key={p.id} product={p} />
         ))}
