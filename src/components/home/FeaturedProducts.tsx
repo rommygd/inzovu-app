@@ -43,12 +43,12 @@ export default function FeaturedProducts() {
             }}
             className="w-full"
           >
-            <CarouselContent className="-ml-2">
-              {Array.from({ length: Math.ceil(featuredProducts.length / 3) }).map((_, slideIndex) => (
-                <CarouselItem key={slideIndex} className="pl-2 basis-full">
-                  <div className="grid grid-cols-3 gap-3">
+            <CarouselContent className="-ml-3">
+              {Array.from({ length: Math.ceil(featuredProducts.length / 2) }).map((_, slideIndex) => (
+                <CarouselItem key={slideIndex} className="pl-3 basis-full">
+                  <div className="grid grid-cols-2 gap-4">
                     {featuredProducts
-                      .slice(slideIndex * 3, slideIndex * 3 + 3)
+                      .slice(slideIndex * 2, slideIndex * 2 + 2)
                       .map((product) => (
                         <div key={product.id} className="group">
                           <ProductCard product={product} />

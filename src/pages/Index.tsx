@@ -128,13 +128,13 @@ const Index = () => {
                 }}
                 className="w-full"
               >
-                <CarouselContent className="-ml-2">
-                  {Array.from({ length: Math.ceil(products.filter(p => p.categorySlug === "fruits").length / 3) }).map((_, slideIndex) => (
-                    <CarouselItem key={slideIndex} className="pl-2 basis-full">
-                      <div className="grid grid-cols-3 gap-3">
+                <CarouselContent className="-ml-3">
+                  {Array.from({ length: Math.ceil(products.filter(p => p.categorySlug === "fruits").length / 2) }).map((_, slideIndex) => (
+                    <CarouselItem key={slideIndex} className="pl-3 basis-full">
+                      <div className="grid grid-cols-2 gap-4">
                         {products
                           .filter(p => p.categorySlug === "fruits")
-                          .slice(slideIndex * 3, slideIndex * 3 + 3)
+                          .slice(slideIndex * 2, slideIndex * 2 + 2)
                           .map((p) => (
                             <ProductCard key={p.id} product={p} />
                           ))}
@@ -200,13 +200,13 @@ const Index = () => {
                 }}
                 className="w-full"
               >
-                <CarouselContent className="-ml-2">
-                  {Array.from({ length: Math.ceil(products.filter(p => p.categorySlug === "vegetables").length / 3) }).map((_, slideIndex) => (
-                    <CarouselItem key={slideIndex} className="pl-2 basis-full">
-                      <div className="grid grid-cols-3 gap-3">
+                <CarouselContent className="-ml-3">
+                  {Array.from({ length: Math.ceil(products.filter(p => p.categorySlug === "vegetables").length / 2) }).map((_, slideIndex) => (
+                    <CarouselItem key={slideIndex} className="pl-3 basis-full">
+                      <div className="grid grid-cols-2 gap-4">
                         {products
                           .filter(p => p.categorySlug === "vegetables")
-                          .slice(slideIndex * 3, slideIndex * 3 + 3)
+                          .slice(slideIndex * 2, slideIndex * 2 + 2)
                           .map((p) => (
                             <ProductCard key={p.id} product={p} />
                           ))}
