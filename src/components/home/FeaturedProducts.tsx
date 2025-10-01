@@ -39,6 +39,7 @@ export default function FeaturedProducts() {
             opts={{
               align: "start",
               slidesToScroll: 1,
+              axis: "x",
             }}
             className="w-full"
           >

@@ -124,6 +124,7 @@ const Index = () => {
                 opts={{
                   align: "start",
                   slidesToScroll: 1,
+                  axis: "x",
                 }}
                 className="w-full"
               >
@@ -189,7 +190,37 @@ const Index = () => {
                 </Button>
               </div>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
+            {/* Mobile Carousel */}
+            <div className="block sm:hidden">
+              <Carousel
+                opts={{
+                  align: "start",
+                  slidesToScroll: 1,
+                  axis: "x",
+                }}
+                className="w-full"
+              >
+                <CarouselContent className="-ml-2">
+                  {Array.from({ length: Math.ceil(products.filter(p => p.categorySlug === "vegetables").length / 3) }).map((_, slideIndex) => (
+                    <CarouselItem key={slideIndex} className="pl-2 basis-full">
+                      <div className="grid grid-cols-3 gap-3">
+                        {products
+                          .filter(p => p.categorySlug === "vegetables")
+                          .slice(slideIndex * 3, slideIndex * 3 + 3)
+                          .map((p) => (
+                            <ProductCard key={p.id} product={p} />
+                          ))}
+                      </div>
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+                <CarouselPrevious className="left-2" />
+                <CarouselNext className="right-2" />
+              </Carousel>
+            </div>
+
+            {/* Desktop Grid */}
+            <div className="hidden sm:grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
               {products.filter(p => p.categorySlug === "vegetables").map((p) => (
                 <ProductCard key={p.id} product={p} />
               ))}
