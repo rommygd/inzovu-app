@@ -11,7 +11,6 @@ function useQuery() {
 
 export default function Shop() {
   const { products } = useProducts();
-
   const q = useQuery().get("q")?.toLowerCase() || "";
   const filtered = q
     ? products.filter((p) => p.name.toLowerCase().includes(q))
@@ -42,24 +41,22 @@ export default function Shop() {
           </ul>
         </aside>
 
-        <section className="flex-1">
-          {/* Mobile horizontal scroll */}
-          <div className="block sm:hidden overflow-x-auto pb-4">
-            <div className="flex gap-4 min-w-max">
-              {filtered.map((p) => (
-                <div key={p.id} className="w-64 flex-shrink-0">
-                  <ProductCard product={p} />
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Desktop grid */}
-          <div className="hidden sm:grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        {/* Mobile horizontal scroll */}
+        <section className="flex-1 block sm:hidden overflow-x-auto pb-4">
+          <div className="flex gap-4 min-w-max">
             {filtered.map((p) => (
-              <ProductCard key={p.id} product={p} />
+              <div key={p.id} className="w-64 flex-shrink-0">
+                <ProductCard product={p} />
+              </div>
             ))}
           </div>
+        </section>
+
+        {/* Desktop grid */}
+        <section className="flex-1 hidden sm:grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          {filtered.map((p) => (
+            <ProductCard key={p.id} product={p} />
+          ))}
         </section>
       </div>
     </div>

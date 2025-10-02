@@ -149,8 +149,8 @@ export default function MobileMenu() {
 
           {/* Footer */}
           <div className="p-6 border-t border-border/30 bg-muted/20">
-            <Button className="w-full h-11 bg-primary hover:bg-primary/90 text-white font-medium rounded-lg transition-colors">
-              View Special Offers
+            <Button className="w-full bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 text-white shadow-md">
+              🎁 View Exclusive Deals
             </Button>
           </div>
         </div>
