@@ -94,56 +94,57 @@ export default function ProductCard({ product }: { product: Product }) {
       </Link>
 
       {/* Content */}
-      <div className="p-5 sm:p-6 space-y-4">
+      <div className="p-4 sm:p-5 space-y-3">
         <Link to={`/product/${product.id}`}>
-          <h3 className="font-bold text-base sm:text-lg lg:text-xl mb-2 group-hover:text-primary transition-colors line-clamp-2 leading-tight min-h-[3rem]">
+          <h3 className="font-bold text-sm sm:text-base lg:text-lg mb-1 group-hover:text-primary transition-colors line-clamp-2 leading-tight">
             {product.name}
           </h3>
         </Link>
 
         {/* Price */}
-        <div className="flex items-end justify-between mb-3">
-          <div className="space-y-1.5">
-            <div className="flex items-baseline gap-1">
-              <span className="text-2xl sm:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-primary via-primary to-accent bg-clip-text text-transparent">
-                RWF {product.price.toLocaleString()}
-              </span>
-            </div>
-            <div className="text-xs sm:text-sm font-medium text-muted-foreground bg-gradient-to-r from-muted/40 to-muted/20 px-3 py-1.5 rounded-full inline-block border border-border/30">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <span className="text-lg sm:text-xl lg:text-2xl font-semibold bg-gradient-to-r from-primary via-primary to-accent bg-clip-text text-transparent whitespace-nowrap">
+              RWF {product.price.toLocaleString()}
+            </span>
+            <span className="text-xs font-medium text-muted-foreground bg-muted/40 px-2 py-0.5 rounded-full border border-border/30">
               per {product.unit || "piece"}
-            </div>
+            </span>
           </div>
         </div>
 
-        {/* Quantity Controls */}
+        {/* Quantity Controls and Add to Cart */}
         <div className="space-y-2">
-          <div className="flex items-center justify-center gap-3">
-            <button
-              onClick={decrementQuantity}
-              className="w-8 h-8 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 flex items-center justify-center transition-colors duration-200"
-              disabled={quantity <= 1}
-            >
-              <Minus className="h-4 w-4" />
-            </button>
-            <span className="w-12 text-center font-medium text-lg">
-              {quantity}
-            </span>
-            <button
-              onClick={incrementQuantity}
-              className="w-8 h-8 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 flex items-center justify-center transition-colors duration-200"
-            >
-              <Plus className="h-4 w-4" />
-            </button>
-          </div>
+          <div className="flex items-center justify-between gap-2">
+            <div className="flex items-center gap-1">
+              <button
+                onClick={decrementQuantity}
+                className="w-6 h-6 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 flex items-center justify-center transition-colors duration-200"
+                disabled={quantity <= 1}
+              >
+                <Minus className="h-3 w-3" />
+              </button>
+              <span className="w-8 text-center font-medium text-sm">
+                {quantity}
+              </span>
+              <button
+                onClick={incrementQuantity}
+                className="w-6 h-6 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 flex items-center justify-center transition-colors duration-200"
+              >
+                <Plus className="h-3 w-3" />
+              </button>
+            </div>
 
-          {/* Add to Cart */}
-          <Button
-            onClick={addToCart}
-            className="w-full bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary text-white font-semibold py-2.5 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 flex items-center justify-center gap-2 text-sm"
-          >
-            <ShoppingCart className="h-4 w-4" />
-            Add to Cart
-          </Button>
+            {/* Add to Cart */}
+            <Button
+              onClick={addToCart}
+              size="sm"
+              className="bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary text-white font-semibold rounded-lg shadow-md hover:shadow-lg transition-all duration-200 flex items-center gap-1 px-3 py-1.5 text-xs"
+            >
+              <ShoppingCart className="h-3 w-3" />
+              Add
+            </Button>
+          </div>
         </div>
       </div>
 

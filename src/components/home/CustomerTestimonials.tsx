@@ -1,6 +1,12 @@
-import { useState } from "react";
-import { ChevronLeft, ChevronRight, Star } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { useState, useEffect } from "react";
+import { Star } from "lucide-react";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 const testimonials = [
   {
@@ -40,6 +46,14 @@ const testimonials = [
 export default function CustomerTestimonials() {
   const [currentIndex, setCurrentIndex] = useState(0);
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % testimonials.length);
+    }, 5000); // Auto-slide every 5 seconds
+
+    return () => clearInterval(interval);
+  }, []);
+
   const nextTestimonial = () => {
     setCurrentIndex((prev) => (prev + 1) % testimonials.length);
   };
@@ -49,69 +63,65 @@ export default function CustomerTestimonials() {
   };
 
   return (
-    <section className="py-12 sm:py-16 bg-muted/30">
+    <section className="py-12 sm:py-16 bg-gradient-to-br from-background via-muted/20 to-primary/5">
       <div className="container mx-auto px-4 sm:px-6">
         <div className="text-center mb-8 sm:mb-12">
-          <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4">
+          <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4 text-foreground">
             What our customers say about Inzovu
           </h2>
+          <p className="text-sm sm:text-base lg:text-lg text-muted-foreground max-w-3xl mx-auto">
+            Hear from our satisfied customers about their experience with fresh, quality products and exceptional service.
+          </p>
         </div>
 
-        <div className="relative max-w-5xl mx-auto">
-          <div className="overflow-hidden">
-            <div 
-              className="flex transition-transform duration-500 ease-in-out"
-              style={{ transform: `translateX(-${currentIndex * 100}%)` }}
-            >
+        <div className="relative max-w-4xl mx-auto">
+          <Carousel
+            opts={{
+              align: "start",
+              slidesToScroll: 1,
+            }}
+            className="w-full"
+          >
+            <CarouselContent className="-ml-3">
               {testimonials.map((testimonial) => (
-                <div key={testimonial.id} className="w-full flex-shrink-0">
-                  <div className="bg-background rounded-xl sm:rounded-2xl p-4 sm:p-6 lg:p-8 shadow-sm border border-border mx-2 sm:mx-4">
-                    <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
-                      <img
-                        src={testimonial.image}
-                        alt={testimonial.name}
-                        className="w-12 h-12 sm:w-16 sm:h-16 rounded-full object-cover flex-shrink-0"
-                        loading="lazy"
-                      />
+                <CarouselItem key={testimonial.id} className="pl-3 basis-full sm:basis-1/2 lg:basis-1/3">
+                  <div className="group bg-white/80 backdrop-blur-sm rounded-xl sm:rounded-2xl p-4 sm:p-6 shadow-lg hover:shadow-xl border border-border/50 hover:border-primary/20 transition-all duration-300 hover:-translate-y-1 lg:hover:-translate-y-2 mx-2">
+                    <div className="flex flex-col items-center text-center gap-3 sm:gap-4 mb-4 sm:mb-6">
+                      <div className="relative">
+                        <img
+                          src={testimonial.image}
+                          alt={testimonial.name}
+                          className="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 rounded-full object-cover ring-4 ring-primary/10 group-hover:ring-primary/30 transition-all duration-300 group-hover:scale-105"
+                          loading="lazy"
+                        />
+                        <div className="absolute -bottom-1 -right-1 bg-primary text-primary-foreground rounded-full p-1">
+                          <Star className="h-3 w-3 sm:h-4 sm:w-4 fill-current" />
+                        </div>
+                      </div>
                       <div className="flex-1">
-                        <h3 className="font-semibold text-base sm:text-lg">{testimonial.name}</h3>
-                        <p className="text-xs sm:text-sm text-muted-foreground">{testimonial.location}</p>
-                        <div className="flex items-center gap-1 mt-1">
+                        <h3 className="font-semibold text-base sm:text-lg lg:text-xl text-foreground group-hover:text-primary transition-colors">
+                          {testimonial.name}
+                        </h3>
+                        <p className="text-xs sm:text-sm text-muted-foreground mb-2">{testimonial.location}</p>
+                        <div className="flex items-center justify-center gap-1 mb-3">
                           {Array.from({ length: testimonial.rating }).map((_, i) => (
                             <Star key={i} className="h-3 w-3 sm:h-4 sm:w-4 fill-amber-400 text-amber-400" />
                           ))}
                         </div>
                       </div>
                     </div>
-                    <p className="text-muted-foreground text-sm sm:text-base lg:text-lg leading-relaxed italic">
+                    <p className="text-muted-foreground text-sm sm:text-base leading-relaxed italic text-center">
                       "{testimonial.text}"
                     </p>
                   </div>
-                </div>
+                </CarouselItem>
               ))}
-            </div>
-          </div>
+            </CarouselContent>
+            <CarouselPrevious className="left-2" />
+            <CarouselNext className="right-2" />
+          </Carousel>
 
-          {/* Navigation buttons - Hidden on mobile */}
-          <Button
-            onClick={prevTestimonial}
-            variant="outline"
-            size="icon"
-            className="hidden sm:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 lg:-translate-x-4 bg-background/90 backdrop-blur-sm border-border hover:bg-muted h-10 w-10 lg:h-12 lg:w-12 touch-manipulation"
-          >
-            <ChevronLeft className="h-4 w-4 lg:h-5 lg:w-5" />
-          </Button>
-
-          <Button
-            onClick={nextTestimonial}
-            variant="outline"
-            size="icon"
-            className="hidden sm:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 lg:translate-x-4 bg-background/90 backdrop-blur-sm border-border hover:bg-muted h-10 w-10 lg:h-12 lg:w-12 touch-manipulation"
-          >
-            <ChevronRight className="h-4 w-4 lg:h-5 lg:w-5" />
-          </Button>
-
-          {/* Dots indicator - Mobile friendly */}
+          {/* Dots indicator */}
           <div className="flex justify-center gap-2 mt-6 sm:mt-8">
             {testimonials.map((_, index) => (
               <button
@@ -123,28 +133,6 @@ export default function CustomerTestimonials() {
                 aria-label={`Go to testimonial ${index + 1}`}
               />
             ))}
-          </div>
-
-          {/* Mobile navigation buttons */}
-          <div className="flex sm:hidden justify-center gap-4 mt-4">
-            <Button
-              onClick={prevTestimonial}
-              variant="outline"
-              size="sm"
-              className="bg-background/90 backdrop-blur-sm border-border hover:bg-muted touch-manipulation"
-            >
-              <ChevronLeft className="h-4 w-4 mr-1" />
-              Previous
-            </Button>
-            <Button
-              onClick={nextTestimonial}
-              variant="outline"
-              size="sm"
-              className="bg-background/90 backdrop-blur-sm border-border hover:bg-muted touch-manipulation"
-            >
-              Next
-              <ChevronRight className="h-4 w-4 ml-1" />
-            </Button>
           </div>
         </div>
       </div>
