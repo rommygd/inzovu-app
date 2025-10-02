@@ -6,7 +6,13 @@ export default function Footer() {
       <div className="container mx-auto grid gap-8 md:grid-cols-4 py-10">
         <div>
           <h3 className="font-display text-lg font-semibold mb-3">Inzovu Market</h3>
-          <p className="text-sm text-muted-foreground">Fresh groceries delivered fast. Quality you can taste, service you can trust.</p>
+          <p className="text-sm text-muted-foreground mb-4">Fresh groceries delivered fast. Quality you can taste, service you can trust.</p>
+          <div className="text-sm text-muted-foreground space-y-1">
+            <p>📍 KN 5 Ave, Kimihurura, Kigali</p>
+            <p>📞 +250 788 555 123</p>
+            <p>✉️ info@inzovumarket.rw</p>
+            <p>🕐 Mon-Sun: 7AM-9PM</p>
+          </div>
         </div>
         <div>
           <h4 className="font-medium mb-3">Shop</h4>

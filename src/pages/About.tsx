@@ -1,5 +1,6 @@
 import { MapPin, Phone, Mail, Clock, Users, Award, Truck, Heart, Leaf, Star, Shield, Zap } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import aboutFarmImage from "@/assets/about-farm.jpg";
 
 export default function About() {
   return (
@@ -57,7 +58,7 @@ export default function About() {
         </div>
         <div className="relative">
           <img
-            src="/placeholder.svg"
+            src={aboutFarmImage}
             alt="Fresh produce from Rwandan farms"
             className="rounded-2xl shadow-2xl w-full h-80 object-cover"
           />
@@ -190,22 +191,22 @@ export default function About() {
           <div className="text-center">
             <MapPin className="h-8 w-8 text-primary mx-auto mb-2" />
             <h3 className="font-semibold mb-1">Address</h3>
-            <p className="text-sm text-muted-foreground">KG 123 St, Kigali, Rwanda</p>
+            <p className="text-sm text-muted-foreground">KN 5 Ave, Kimihurura<br />Kigali, Rwanda</p>
           </div>
           <div className="text-center">
             <Phone className="h-8 w-8 text-primary mx-auto mb-2" />
             <h3 className="font-semibold mb-1">Phone</h3>
-            <p className="text-sm text-muted-foreground">+250 788 123 456</p>
+            <p className="text-sm text-muted-foreground">+250 788 555 123</p>
           </div>
           <div className="text-center">
             <Mail className="h-8 w-8 text-primary mx-auto mb-2" />
             <h3 className="font-semibold mb-1">Email</h3>
-            <p className="text-sm text-muted-foreground">hello@inzovu.rw</p>
+            <p className="text-sm text-muted-foreground">info@inzovumarket.rw</p>
           </div>
           <div className="text-center">
             <Clock className="h-8 w-8 text-primary mx-auto mb-2" />
             <h3 className="font-semibold mb-1">Hours</h3>
-            <p className="text-sm text-muted-foreground">Mon-Sun: 8AM-8PM</p>
+            <p className="text-sm text-muted-foreground">Mon-Sun: 7AM-9PM</p>
           </div>
         </div>
         <div className="text-center">

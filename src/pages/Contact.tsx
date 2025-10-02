@@ -38,9 +38,9 @@ export default function Contact() {
                   <div>
                     <h3 className="font-semibold mb-1">Our Location</h3>
                     <p className="text-muted-foreground text-sm">
-                      KG 123 Street<br />
-                      Kigali, Rwanda<br />
-                      Gasabo District
+                      KN 5 Ave, Kimihurura<br />
+                      Gasabo District<br />
+                      Kigali, Rwanda
                     </p>
                   </div>
                 </div>
@@ -53,9 +53,9 @@ export default function Contact() {
                   <Phone className="h-6 w-6 text-primary mt-1 flex-shrink-0" />
                   <div>
                     <h3 className="font-semibold mb-1">Phone Support</h3>
-                    <p className="text-muted-foreground text-sm mb-1">+250 788 123 456</p>
-                    <p className="text-muted-foreground text-sm mb-1">+250 789 987 654</p>
-                    <p className="text-xs text-muted-foreground">Mon-Sun: 8AM-8PM</p>
+                    <p className="text-muted-foreground text-sm mb-1">+250 788 555 123</p>
+                    <p className="text-muted-foreground text-sm mb-1">+250 788 555 124</p>
+                    <p className="text-xs text-muted-foreground">Mon-Sun: 7AM-9PM</p>
                   </div>
                 </div>
               </CardContent>
@@ -67,8 +67,8 @@ export default function Contact() {
                   <Mail className="h-6 w-6 text-primary mt-1 flex-shrink-0" />
                   <div>
                     <h3 className="font-semibold mb-1">Email Us</h3>
-                    <p className="text-muted-foreground text-sm mb-1">hello@inzovu.rw</p>
-                    <p className="text-muted-foreground text-sm mb-1">support@inzovu.rw</p>
+                    <p className="text-muted-foreground text-sm mb-1">info@inzovumarket.rw</p>
+                    <p className="text-muted-foreground text-sm mb-1">support@inzovumarket.rw</p>
                     <p className="text-xs text-muted-foreground">We respond within 2 hours</p>
                   </div>
                 </div>
@@ -82,7 +82,7 @@ export default function Contact() {
                   <div>
                     <h3 className="font-semibold mb-1">Business Hours</h3>
                     <p className="text-muted-foreground text-sm mb-1">Monday - Sunday</p>
-                    <p className="text-muted-foreground text-sm">8:00 AM - 8:00 PM</p>
+                    <p className="text-muted-foreground text-sm">7:00 AM - 9:00 PM</p>
                   </div>
                 </div>
               </CardContent>
@@ -244,7 +244,7 @@ export default function Contact() {
           </div>
           <div>
             <h3 className="font-semibold mb-2">Do you offer phone support?</h3>
-            <p className="text-sm text-muted-foreground">Yes! Call us directly at +250 788 123 456 for immediate assistance.</p>
+            <p className="text-sm text-muted-foreground">Yes! Call us directly at +250 788 555 123 for immediate assistance.</p>
           </div>
           <div>
             <h3 className="font-semibold mb-2">Can I visit your location?</h3>

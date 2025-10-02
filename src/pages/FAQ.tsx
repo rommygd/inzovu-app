@@ -238,15 +238,15 @@ export default function FAQ() {
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <div className="flex items-center gap-2 text-sm">
             <Phone className="h-4 w-4 text-primary" />
-            <span>Call: +250 788 123 456</span>
+            <span>Call: +250 788 555 123</span>
           </div>
           <div className="flex items-center gap-2 text-sm">
             <HelpCircle className="h-4 w-4 text-primary" />
-            <span>Email: support@inzovu.rw</span>
+            <span>Email: support@inzovumarket.rw</span>
           </div>
           <div className="flex items-center gap-2 text-sm">
             <Clock className="h-4 w-4 text-primary" />
-            <span>Mon-Sun: 8AM-8PM</span>
+            <span>Mon-Sun: 7AM-9PM</span>
           </div>
         </div>
       </div>
