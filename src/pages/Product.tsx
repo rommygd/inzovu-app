@@ -31,7 +31,7 @@ export default function Product() {
       <div>
         <h1 className="font-display text-3xl font-semibold">{product.name}</h1>
         <p className="text-muted-foreground mt-2">{product.description}</p>
-        <div className="mt-4 text-2xl font-semibold">${product.price.toFixed(2)} <span className="text-sm text-muted-foreground">{product.unit || ""}</span></div>
+        <div className="mt-4 text-2xl font-semibold">RWF {Math.round(product.price).toLocaleString()} <span className="text-sm text-muted-foreground">{product.unit || ""}</span></div>
 
         <div className="mt-6 flex gap-3">
           <Button onClick={addToCart}>Add to Cart</Button>

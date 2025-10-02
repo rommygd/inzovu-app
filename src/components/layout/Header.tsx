@@ -35,12 +35,9 @@ export default function Header() {
     { name: "DELI", href: "/shop" },
     { name: "NEW IN", href: "/shop" },
     { name: "GOOD STUFF", href: "/shop" },
-<<<<<<< HEAD
-=======
     { name: "ABOUT", href: "/about" },
     { name: "CONTACT", href: "/contact" },
     { name: "FAQ", href: "/faq" },
->>>>>>> 3a3d41a (Updated code with new changes)
   ];
 
   return (
@@ -76,7 +73,7 @@ export default function Header() {
               <MobileMenu />
               <span className="hidden lg:inline text-xs text-muted-foreground font-medium tracking-wider">EST. 2024</span>
             </div>
-            
+
             {/* Logo - Responsive */}
             <Link to="/" className="flex flex-col items-center lg:items-start group flex-shrink-0">
               <span className="font-display text-xl sm:text-2xl lg:text-3xl font-bold text-primary group-hover:text-primary/80 transition-colors">INZOVU</span>
@@ -112,10 +109,10 @@ export default function Header() {
 
               {/* Desktop Actions */}
               <div className="hidden lg:flex items-center gap-2 lg:gap-3">
-                <Button variant="ghost" size="icon" className="hover:bg-muted/50 rounded-full h-9 w-9 lg:h-10 lg:w-10">
+                <Link to="/liked" className="p-2 hover:bg-muted/50 rounded-full transition-colors">
                   <Heart className="h-4 w-4 lg:h-5 lg:w-5" />
-                </Button>
-                
+                </Link>
+
                 <div className="hidden xl:flex items-center gap-2 p-2 hover:bg-muted/50 rounded-lg transition-colors cursor-pointer">
                   <User className="h-4 w-4 lg:h-5 lg:w-5" />
                   <div className="flex flex-col text-xs">
@@ -161,8 +158,8 @@ export default function Header() {
                         to={`/category/${category.slug}`}
                         className="flex items-center gap-3 px-3 py-2 text-sm hover:bg-muted rounded-md cursor-pointer"
                       >
-                        <img 
-                          src={category.image} 
+                        <img
+                          src={category.image}
                           alt={category.title}
                           className="w-8 h-8 rounded object-cover"
                         />
@@ -181,7 +178,7 @@ export default function Header() {
                 </DropdownMenuContent>
               </DropdownMenu>
             </div>
-            
+
             <nav className="flex items-center gap-8">
               {mainCategories.map((item) => (
                 <Link

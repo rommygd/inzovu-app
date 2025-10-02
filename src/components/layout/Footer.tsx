@@ -1,8 +1,5 @@
-<<<<<<< HEAD
-=======
 import { Link } from "react-router-dom";
 
->>>>>>> 3a3d41a (Updated code with new changes)
 export default function Footer() {
   return (
     <footer className="mt-16 border-t bg-background">
@@ -14,31 +11,18 @@ export default function Footer() {
         <div>
           <h4 className="font-medium mb-3">Shop</h4>
           <ul className="space-y-2 text-sm text-muted-foreground">
-<<<<<<< HEAD
-            <li><a href="/shop" className="story-link">All Products</a></li>
-            <li><a href="/category/fruits" className="story-link">Fruits</a></li>
-            <li><a href="/category/vegetables" className="story-link">Vegetables</a></li>
-            <li><a href="/category/dairy" className="story-link">Dairy & Eggs</a></li>
-=======
             <li><Link to="/shop" className="story-link">All Products</Link></li>
             <li><Link to="/category/fruits" className="story-link">Fruits</Link></li>
             <li><Link to="/category/vegetables" className="story-link">Vegetables</Link></li>
             <li><Link to="/category/dairy" className="story-link">Dairy & Eggs</Link></li>
->>>>>>> 3a3d41a (Updated code with new changes)
           </ul>
         </div>
         <div>
           <h4 className="font-medium mb-3">Company</h4>
           <ul className="space-y-2 text-sm text-muted-foreground">
-<<<<<<< HEAD
-            <li><a href="#" className="story-link">About</a></li>
-            <li><a href="#" className="story-link">Contact</a></li>
-            <li><a href="#" className="story-link">FAQ</a></li>
-=======
             <li><Link to="/about" className="story-link">About</Link></li>
             <li><Link to="/contact" className="story-link">Contact</Link></li>
             <li><Link to="/faq" className="story-link">FAQ</Link></li>
->>>>>>> 3a3d41a (Updated code with new changes)
           </ul>
         </div>
         <div>

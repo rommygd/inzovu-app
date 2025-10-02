@@ -26,7 +26,7 @@ export default function Cart() {
                   <div className="font-medium">{item.product.name}</div>
                   <div className="text-sm text-muted-foreground">Qty: {item.qty}</div>
                 </div>
-                <div className="font-medium">${(item.product.price * item.qty).toFixed(2)}</div>
+                <div className="font-medium">RWF {Math.round(item.product.price * item.qty).toLocaleString()}</div>
                 <Button variant="ghost" onClick={() => remove(item.id)}>Remove</Button>
               </div>
             ))}
@@ -34,7 +34,7 @@ export default function Cart() {
           <aside className="border rounded-lg p-4 h-fit sticky top-24">
             <div className="flex items-center justify-between">
               <span className="text-muted-foreground">Subtotal</span>
-              <span className="font-semibold">${total.toFixed(2)}</span>
+              <span className="font-semibold">RWF {Math.round(total).toLocaleString()}</span>
             </div>
             <Button className="w-full mt-4 btn-hero" asChild>
               <Link to="/checkout">Proceed to Checkout</Link>

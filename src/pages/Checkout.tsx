@@ -43,13 +43,13 @@ export default function Checkout() {
             {cart.map((item: any) => (
               <li key={item.id} className="flex items-center justify-between">
                 <span>{item.product.name} × {item.qty}</span>
-                <span className="text-foreground">${(item.product.price * item.qty).toFixed(2)}</span>
+                <span className="text-foreground">RWF {Math.round(item.product.price * item.qty).toLocaleString()}</span>
               </li>
             ))}
           </ul>
           <div className="mt-3 flex items-center justify-between">
             <span className="text-muted-foreground">Total</span>
-            <span className="font-semibold">${total.toFixed(2)}</span>
+            <span className="font-semibold">RWF {Math.round(total).toLocaleString()}</span>
           </div>
           <Button className="w-full mt-4 btn-hero" type="submit">Place order</Button>
           <Button variant="secondary" className="w-full mt-2" asChild>
