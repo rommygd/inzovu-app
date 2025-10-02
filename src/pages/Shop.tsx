@@ -1,13 +1,8 @@
 import { useMemo } from "react";
 import ProductCard from "@/components/product/ProductCard";
-<<<<<<< HEAD
-import { categories, products } from "@/data/inzovu";
-import { Link, useLocation } from "react-router-dom";
-=======
 import { categories } from "@/data/inzovu";
 import { Link, useLocation } from "react-router-dom";
 import { useProducts } from "@/contexts/ProductContext";
->>>>>>> 3a3d41a (Updated code with new changes)
 
 function useQuery() {
   const { search } = useLocation();
@@ -15,22 +10,13 @@ function useQuery() {
 }
 
 export default function Shop() {
-<<<<<<< HEAD
-=======
   const { products } = useProducts();
->>>>>>> 3a3d41a (Updated code with new changes)
   const q = useQuery().get("q")?.toLowerCase() || "";
   const filtered = q
     ? products.filter((p) => p.name.toLowerCase().includes(q))
     : products;
 
   return (
-<<<<<<< HEAD
-    <div className="container mx-auto py-8">
-      <header className="flex items-end justify-between">
-        <h1 className="font-display text-3xl font-semibold">Shop All</h1>
-        <div className="text-sm text-muted-foreground">{filtered.length} items</div>
-=======
     <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <header className="text-center mb-8">
         <h1 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4 leading-tight">
@@ -41,7 +27,6 @@ export default function Shop() {
           Everything you need for healthy, delicious meals.
         </p>
         <div className="text-sm text-muted-foreground">{filtered.length} fresh items available</div>
->>>>>>> 3a3d41a (Updated code with new changes)
       </header>
 
       <div className="flex gap-6 mt-6">
@@ -56,9 +41,6 @@ export default function Shop() {
           </ul>
         </aside>
 
-<<<<<<< HEAD
-        <section className="flex-1 grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-=======
         {/* Mobile horizontal scroll */}
         <section className="flex-1 block sm:hidden overflow-x-auto pb-4">
           <div className="flex gap-4 min-w-max">
@@ -72,7 +54,6 @@ export default function Shop() {
 
         {/* Desktop grid */}
         <section className="flex-1 hidden sm:grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
->>>>>>> 3a3d41a (Updated code with new changes)
           {filtered.map((p) => (
             <ProductCard key={p.id} product={p} />
           ))}

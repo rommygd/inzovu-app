@@ -10,41 +10,17 @@ import Category from "./pages/Category";
 import Product from "./pages/Product";
 import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
-<<<<<<< HEAD
-import Layout from "./components/layout/Layout";
-=======
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import FAQ from "./pages/FAQ";
 import Admin from "./pages/Admin";
 import Layout from "./components/layout/Layout";
 import { ProductProvider } from "./contexts/ProductContext";
->>>>>>> 3a3d41a (Updated code with new changes)
 
 const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
-<<<<<<< HEAD
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Layout />}>
-            <Route index element={<Index />} />
-            <Route path="shop" element={<Shop />} />
-            <Route path="category/:slug" element={<Category />} />
-            <Route path="product/:id" element={<Product />} />
-            <Route path="cart" element={<Cart />} />
-            <Route path="checkout" element={<Checkout />} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-            <Route path="*" element={<NotFound />} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
-    </TooltipProvider>
-=======
     <ProductProvider>
       <TooltipProvider>
         <Toaster />
@@ -69,7 +45,6 @@ const App = () => (
         </BrowserRouter>
       </TooltipProvider>
     </ProductProvider>
->>>>>>> 3a3d41a (Updated code with new changes)
   </QueryClientProvider>
 );
 

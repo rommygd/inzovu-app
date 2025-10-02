@@ -7,11 +7,7 @@ export default function ProductCard({ product }: { product: Product }) {
   const addToCart = () => {
     const cart = JSON.parse(localStorage.getItem("cart") || "[]");
     const existing = cart.find((item: any) => item.id === product.id);
-<<<<<<< HEAD
-    
-=======
 
->>>>>>> 3a3d41a (Updated code with new changes)
     if (existing) {
       existing.qty += 1;
     } else {
@@ -21,11 +17,7 @@ export default function ProductCard({ product }: { product: Product }) {
         qty: 1
       });
     }
-<<<<<<< HEAD
-    
-=======
 
->>>>>>> 3a3d41a (Updated code with new changes)
     localStorage.setItem("cart", JSON.stringify(cart));
     window.dispatchEvent(new Event("cart:updated"));
   };
@@ -46,29 +38,17 @@ export default function ProductCard({ product }: { product: Product }) {
           </div>
         </div>
       </Link>
-<<<<<<< HEAD
-      
-=======
 
->>>>>>> 3a3d41a (Updated code with new changes)
       <div className="p-5 sm:p-6 space-y-4">
         <Link to={`/product/${product.id}`}>
           <h3 className="font-bold text-base sm:text-lg lg:text-xl mb-2 group-hover:text-primary transition-colors line-clamp-2 leading-tight min-h-[3rem]">{product.name}</h3>
         </Link>
-<<<<<<< HEAD
-        
-=======
 
->>>>>>> 3a3d41a (Updated code with new changes)
         <div className="flex items-end justify-between mb-3">
           <div className="space-y-1.5">
             <div className="flex items-baseline gap-1">
               <span className="text-2xl sm:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-primary via-primary to-accent bg-clip-text text-transparent">
-<<<<<<< HEAD
-                RWF {(product.price * 1000).toFixed(0)}
-=======
                 RWF {product.price.toLocaleString()}
->>>>>>> 3a3d41a (Updated code with new changes)
               </span>
             </div>
             <div className="text-xs sm:text-sm font-medium text-muted-foreground bg-gradient-to-r from-muted/40 to-muted/20 px-3 py-1.5 rounded-full inline-block border border-border/30">
@@ -76,11 +56,7 @@ export default function ProductCard({ product }: { product: Product }) {
             </div>
           </div>
         </div>
-<<<<<<< HEAD
-        
-=======
 
->>>>>>> 3a3d41a (Updated code with new changes)
         <Button
           onClick={addToCart}
           className="w-full bg-gradient-to-r from-primary via-primary to-accent hover:from-primary/90 hover:via-primary/95 hover:to-accent/90 text-white font-bold h-12 sm:h-14 text-sm sm:text-base rounded-2xl shadow-xl hover:shadow-2xl hover:shadow-primary/30 transition-all duration-300 group/btn touch-manipulation active:scale-95 border-2 border-primary/20"
