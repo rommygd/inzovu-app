@@ -113,13 +113,13 @@ export default function Header() {
                   <Heart className="h-4 w-4 lg:h-5 lg:w-5" />
                 </Link>
 
-                <div className="hidden xl:flex items-center gap-2 p-2 hover:bg-muted/50 rounded-lg transition-colors cursor-pointer">
+                <Link to="/account" className="hidden xl:flex items-center gap-2 p-2 hover:bg-muted/50 rounded-lg transition-colors cursor-pointer">
                   <User className="h-4 w-4 lg:h-5 lg:w-5" />
                   <div className="flex flex-col text-xs">
                     <span className="font-medium">My Account</span>
                     <span className="text-muted-foreground">Log In</span>
                   </div>
-                </div>
+                </Link>
               </div>
 
               {/* Cart - Always visible with responsive sizing */}
@@ -211,8 +211,8 @@ export default function Header() {
               ))}
             </nav>
 
-            <Button className="btn-hero text-sm h-10 px-6 bg-gradient-to-r from-accent to-accent/80 hover:from-accent/90 hover:to-accent/70">
-              🎁 Exclusive Deals !!
+            <Button asChild className="btn-hero text-sm h-10 px-6 bg-gradient-to-r from-accent to-accent/80 hover:from-accent/90 hover:to-accent/70">
+              <Link to="/deals">🎁 Exclusive Deals !!</Link>
             </Button>
           </div>
         </div>

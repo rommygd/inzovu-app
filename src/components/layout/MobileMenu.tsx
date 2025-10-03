@@ -92,12 +92,12 @@ export default function MobileMenu() {
                   <span className="text-xs font-medium text-center">Wishlist</span>
                 </button>
 
-                <button className="flex flex-col items-center gap-2 p-4 rounded-xl hover:bg-muted/50 transition-colors touch-manipulation">
+                <Link to="/account" onClick={() => setOpen(false)} className="flex flex-col items-center gap-2 p-4 rounded-xl hover:bg-muted/50 transition-colors touch-manipulation">
                   <div className="w-12 h-12 bg-muted rounded-xl flex items-center justify-center">
                     <User className="h-6 w-6 text-muted-foreground" />
                   </div>
                   <span className="text-xs font-medium text-center">Account</span>
-                </button>
+                </Link>
               </div>
 
               {/* Categories */}
@@ -151,8 +151,8 @@ export default function MobileMenu() {
 
           {/* Footer */}
           <div className="p-6 border-t border-border/30 bg-muted/20">
-            <Button className="w-full bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 text-white shadow-md">
-              🎁 View Exclusive Deals
+            <Button asChild className="w-full bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 text-white shadow-md" onClick={() => setOpen(false)}>
+              <Link to="/deals">🎁 View Exclusive Deals</Link>
             </Button>
           </div>
         </div>

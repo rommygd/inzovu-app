@@ -17,6 +17,8 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import FAQ from "./pages/FAQ";
 import Admin from "./pages/Admin";
+import Deals from "./pages/Deals";
+import Account from "./pages/Account";
 import Layout from "./components/layout/Layout";
 import { ProductProvider } from "./contexts/ProductContext";
 
@@ -42,6 +44,8 @@ const App = () => (
               <Route path="contact" element={<Contact />} />
               <Route path="faq" element={<FAQ />} />
               <Route path="admin" element={<Admin />} />
+              <Route path="deals" element={<Deals />} />
+              <Route path="account" element={<Account />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Route>
