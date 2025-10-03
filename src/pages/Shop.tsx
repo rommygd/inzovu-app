@@ -22,11 +22,10 @@ export default function Shop() {
         <h1 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4 leading-tight">
           Discover Our Fresh Selection
         </h1>
-        <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto mb-6 px-2 sm:px-0">
+        <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto px-2 sm:px-0">
           Explore our wide range of premium quality groceries, from farm-fresh produce to artisanal bakery items.
           Everything you need for healthy, delicious meals.
         </p>
-        <div className="text-sm text-muted-foreground">{filtered.length} fresh items available</div>
       </header>
 
       <div className="flex gap-6 mt-6">

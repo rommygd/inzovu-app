@@ -14,6 +14,7 @@ import { useState, useEffect } from "react";
 
 export default function MobileMenu() {
   const [cartCount, setCartCount] = useState(0);
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
     const updateCartCount = () => {
@@ -27,7 +28,7 @@ export default function MobileMenu() {
   }, []);
 
   return (
-    <Sheet>
+    <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger asChild>
         <Button size="icon" variant="ghost" className="lg:hidden h-10 w-10 hover:bg-muted/50 rounded-full touch-manipulation" aria-label="Open menu">
           <Menu className="h-6 w-6" />
@@ -72,7 +73,7 @@ export default function MobileMenu() {
             <nav className="px-6 py-6">
               {/* Quick Actions */}
               <div className="grid grid-cols-3 gap-3 mb-8">
-                <Link to="/cart" className="flex flex-col items-center gap-2 p-4 rounded-xl hover:bg-muted/50 transition-colors touch-manipulation">
+                <Link to="/cart" onClick={() => setOpen(false)} className="flex flex-col items-center gap-2 p-4 rounded-xl hover:bg-muted/50 transition-colors touch-manipulation">
                   <div className="relative w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center">
                     <ShoppingCart className="h-6 w-6 text-primary" />
                     {cartCount > 0 && (
@@ -106,6 +107,7 @@ export default function MobileMenu() {
                   <Link
                     key={category.slug}
                     to={`/category/${category.slug}`}
+                    onClick={() => setOpen(false)}
                     className="flex items-center justify-between p-3 rounded-lg hover:bg-muted/50 transition-colors touch-manipulation group"
                   >
                     <div className="flex items-center gap-3">
@@ -127,19 +129,19 @@ export default function MobileMenu() {
               {/* Navigation */}
               <div className="space-y-1">
                 <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wide mb-4">Menu</h3>
-                <Link to="/shop" className="flex items-center justify-between p-3 rounded-lg hover:bg-muted/50 transition-colors touch-manipulation group">
+                <Link to="/shop" onClick={() => setOpen(false)} className="flex items-center justify-between p-3 rounded-lg hover:bg-muted/50 transition-colors touch-manipulation group">
                   <span className="font-medium text-foreground group-hover:text-primary transition-colors">Shop All</span>
                   <ChevronRight className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors" />
                 </Link>
-                <Link to="/about" className="flex items-center justify-between p-3 rounded-lg hover:bg-muted/50 transition-colors touch-manipulation group">
+                <Link to="/about" onClick={() => setOpen(false)} className="flex items-center justify-between p-3 rounded-lg hover:bg-muted/50 transition-colors touch-manipulation group">
                   <span className="font-medium text-foreground group-hover:text-primary transition-colors">About</span>
                   <ChevronRight className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors" />
                 </Link>
-                <Link to="/contact" className="flex items-center justify-between p-3 rounded-lg hover:bg-muted/50 transition-colors touch-manipulation group">
+                <Link to="/contact" onClick={() => setOpen(false)} className="flex items-center justify-between p-3 rounded-lg hover:bg-muted/50 transition-colors touch-manipulation group">
                   <span className="font-medium text-foreground group-hover:text-primary transition-colors">Contact</span>
                   <ChevronRight className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors" />
                 </Link>
-                <Link to="/faq" className="flex items-center justify-between p-3 rounded-lg hover:bg-muted/50 transition-colors touch-manipulation group">
+                <Link to="/faq" onClick={() => setOpen(false)} className="flex items-center justify-between p-3 rounded-lg hover:bg-muted/50 transition-colors touch-manipulation group">
                   <span className="font-medium text-foreground group-hover:text-primary transition-colors">FAQ</span>
                   <ChevronRight className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors" />
                 </Link>
