@@ -1,45 +1,55 @@
 import { Link } from "react-router-dom";
+import promoMeat from "@/assets/promo/meat.jpg";
+import promoProduce from "@/assets/promo/produce.jpg";
+import promoVegetables from "@/assets/promo/vegetables.jpg";
+import promoBakery from "@/assets/promo/bakery.jpg";
+import promoPantry from "@/assets/promo/pantry.jpg";
 
 const promotionalOffers = [
   {
     id: 1,
-    title: "TENDER DELIGHT",
-    subtitle: "Sweet Meat, Crisp Thrill",
-    image: "https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=300&h=400&fit=crop",
+    title: "PREMIUM MEATS",
+    subtitle: "Fresh cuts, quality guaranteed",
+    image: promoMeat,
     bgColor: "bg-slate-800",
-    textColor: "text-white"
+    textColor: "text-white",
+    link: "/category/meat"
   },
   {
     id: 2,
-    title: "SWEET AND SAVORY", 
-    subtitle: "Sweet Meat, Crisp Thrill",
-    image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=300&h=400&fit=crop",
+    title: "FRESH PRODUCE", 
+    subtitle: "Farm-fresh daily",
+    image: promoProduce,
     bgColor: "bg-orange-600",
-    textColor: "text-white"
+    textColor: "text-white",
+    link: "/category/fruits"
   },
   {
     id: 3,
-    title: "FRESH AS YOU LIKE",
-    subtitle: "Sweet Meat, Crisp Thrill",
-    image: "https://images.unsplash.com/photo-1540420773420-3366772f4999?w=300&h=400&fit=crop",
+    title: "ORGANIC VEGGIES",
+    subtitle: "Crisp and nutritious",
+    image: promoVegetables,
     bgColor: "bg-green-600",
-    textColor: "text-white"
+    textColor: "text-white",
+    link: "/category/vegetables"
   },
   {
     id: 4,
-    title: "BAKED WITH LOVE",
-    subtitle: "Sweet Meat, Crisp Thrill",
-    image: "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=300&h=400&fit=crop",
+    title: "ARTISAN BAKERY",
+    subtitle: "Baked fresh daily",
+    image: promoBakery,
     bgColor: "bg-amber-600",
-    textColor: "text-white"
+    textColor: "text-white",
+    link: "/category/bakery"
   },
   {
     id: 5,
-    title: "THE GOOD STUFF",
-    subtitle: "Sweet Meat, Crisp Thrill",
-    image: "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=300&h=400&fit=crop",
+    title: "PANTRY ESSENTIALS",
+    subtitle: "Quality ingredients",
+    image: promoPantry,
     bgColor: "bg-blue-600",
-    textColor: "text-white"
+    textColor: "text-white",
+    link: "/category/pantry"
   }
 ];
 
@@ -62,7 +72,7 @@ export default function PromotionalCards() {
             {promotionalOffers.map((offer) => (
               <Link
                 key={offer.id}
-                to="/shop"
+                to={offer.link}
                 className="group relative flex-shrink-0 w-36 aspect-[3/4] rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300"
               >
                 <div className={`absolute inset-0 ${offer.bgColor}`}>
@@ -92,7 +102,7 @@ export default function PromotionalCards() {
           {promotionalOffers.map((offer) => (
             <Link
               key={offer.id}
-              to="/shop"
+              to={offer.link}
               className="group relative aspect-[3/4] rounded-2xl overflow-hidden hover-scale shadow-lg hover:shadow-2xl transition-all duration-300"
             >
               <div className={`absolute inset-0 ${offer.bgColor}`}>

@@ -17,6 +17,8 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import FAQ from "./pages/FAQ";
 import Admin from "./pages/Admin";
+import Auth from "./pages/Auth";
+import AdminPanel from "./pages/AdminPanel";
 import Deals from "./pages/Deals";
 import Account from "./pages/Account";
 import Layout from "./components/layout/Layout";
@@ -32,6 +34,7 @@ const App = () => (
         <Sonner />
         <BrowserRouter>
           <Routes>
+            <Route path="/auth" element={<Auth />} />
             <Route path="/" element={<Layout />}>
               <Route index element={<Index />} />
               <Route path="shop" element={<Shop />} />
@@ -44,6 +47,7 @@ const App = () => (
               <Route path="contact" element={<Contact />} />
               <Route path="faq" element={<FAQ />} />
               <Route path="admin" element={<Admin />} />
+              <Route path="admin-panel" element={<AdminPanel />} />
               <Route path="deals" element={<Deals />} />
               <Route path="account" element={<Account />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
