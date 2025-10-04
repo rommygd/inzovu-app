@@ -79,7 +79,7 @@ const Index = () => {
                     <Link to={`/category/${category.slug}`} className="group block">
                       <div className="bg-white rounded-2xl p-4 shadow-sm hover:shadow-lg transition-all duration-300 group-hover:-translate-y-1">
                         <div className="aspect-square rounded-xl overflow-hidden mb-3">
-  P                        <img
+                          <img
                             src={category.image}
                             alt={category.title}
                             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"

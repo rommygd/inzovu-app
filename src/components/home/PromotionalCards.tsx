@@ -49,10 +49,10 @@ export default function PromotionalCards() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-6 sm:mb-8">
           <h2 className="font-display text-xl sm:text-2xl lg:text-3xl font-bold mb-2 text-foreground">
-            Shop by Category
+            Discover Fresh Flavors
           </h2>
           <p className="text-xs sm:text-sm text-muted-foreground">
-            Browse our curated collections
+            Handpicked selections just for you
           </p>
         </div>
         
